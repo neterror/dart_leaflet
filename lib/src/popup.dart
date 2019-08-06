@@ -48,7 +48,20 @@ class Popup extends DivOverlay {
 @JS()
 @anonymous
 class PopupOptions extends DivOverlayOptions {
-  external factory PopupOptions();
+  external factory PopupOptions({
+      double maxWidth,
+      double minWidth,
+      double maxHeight,
+      double autoPan,
+      Point autoPanPaddingTopLeft,
+      Point autoPanPaddingBottomRight,
+      Point autoPanPadding,
+      bool closeButton,
+      bool autoClose,
+      bool closeOnEscapeKey,
+      bool closeOnClick,
+      String className
+  });
 
   /// Max width of the popup, in pixels.
   external double get maxWidth;

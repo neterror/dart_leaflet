@@ -37,6 +37,22 @@ class Marker extends Layer {
 @JS()
 @anonymous
 class MarkerOptions extends InteractiveLayerOptions {
+  external factory MarkerOptions({
+      Icon icon,
+      bool keyboard,
+      String title,
+      String alt,
+      double zIndexOffset,
+      double opacity,
+      bool riseOnHover,
+      double riseOffset,
+      String pane,
+      bool bubblingMouseEvents,
+      bool draggable,
+      bool autoPan,
+      Point autoPanPadding,
+      double autoPanSpeed
+  });
   /// Icon instance to use for rendering the marker. See Icon documentation
   /// for details on how to customize the marker icon. If not specified, a
   /// common instance of L.Icon.Default is used.

@@ -15,6 +15,15 @@ class Tooltip {
 @JS()
 @anonymous
 class TooltipOptions extends DivOverlay {
+  external factory TooltipOptions({
+      String pane,
+      Point offset,
+      String direction,
+      bool permanent,
+      bool sticky,
+      bool interactive,
+      double opacity
+  });
   /// Map pane where the tooltip will be added.
   external String get pane;
   external set pane(String value);

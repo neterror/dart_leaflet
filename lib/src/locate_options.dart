@@ -6,6 +6,15 @@ import 'package:js/js.dart';
 @JS()
 @anonymous
 class LocateOptions {
+  external factory LocateOptions({
+      bool watch,
+      bool setView,
+      double maxZoom,
+      double timeout,
+      double maximumAge,
+      bool enableHighAccuracy
+  });
+
   /// If true, starts continuous watching of location changes (instead of detecting it once)
   /// using W3C watchPosition method. You can later stop watching using map.stopLocate() method.
   external bool get watch;

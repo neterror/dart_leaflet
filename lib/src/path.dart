@@ -27,7 +27,22 @@ class Path extends Layer {
 @JS()
 @anonymous
 class PathOptions extends LayerOptions {
-  external factory PathOptions();
+  external factory PathOptions({
+      bool stroke,
+      String color,
+      double weight,
+      double opacity,
+      String lineCap,
+      String lineJoin,
+      String dashArray,
+      String dashOffset,
+      bool fill,
+      String fillColor,
+      double fillOpacity,
+      String fillRule,
+      Renderer renderer,
+      String className
+  });
   /// Whether to draw stroke along the path. Set it to false to   disable borders on polygons or circles.
   external bool get stroke;
   external set stroke(bool value);
