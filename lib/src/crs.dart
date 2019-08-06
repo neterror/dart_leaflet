@@ -6,6 +6,7 @@ import 'layer.dart';
 import 'latlng.dart';
 import 'point.dart';
 import 'bounds.dart';
+import 'latlng_bounds.dart';
 
 @JS("CRS")
 class CRS extends Layer {
@@ -52,11 +53,11 @@ class CRS extends Layer {
   /// a given range and how. Defaults to [-180, 180] in most geographical CRSs. If undefined, the
   /// longitude axis does not wrap around.
   external List<double> get wrapLng;
-  external wrapLng set(List<double> value);
+  external set wrapLng(List<double> value);
 
   /// Like wrapLng, but for the latitude (vertical) axis.
   external List<double> get wrapLat;
-  external wrapLng set(List<double> value);
+  external set wrapLat(List<double> value);
 
   /// If true, the coordinate space will be unbounded (infinite in both axes)
   external bool get infinite;
