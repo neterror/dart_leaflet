@@ -3,6 +3,7 @@ library leaflet.icon;
 
 import 'dart:html';
 import 'package:js/js.dart';
+import 'point.dart';
 
 @JS("L.icon")
 class Icon {
@@ -19,6 +20,20 @@ class Icon {
 @JS()
 @anonymous
 class IconOptions {
+  external factory IconOptions({
+      String iconUrl,
+      String iconRetinaUrl,
+      Point iconSize,
+      Point iconAnchor,
+      Point popupAnchor,
+      Point tooltipAnchor,
+      String shadowUrl,
+      String shadowRetinaUrl,
+      Point shadowSize,
+      Point shadowAnchor,
+      String className
+  });
+
   /// (required) The URL to the icon image (absolute or relative to your script path).
   external String get iconUrl;
   external set iconUrl(String value);

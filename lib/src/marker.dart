@@ -10,6 +10,28 @@ import 'latlng.dart';
 @JS("L.marker")
 class Marker extends Layer {
   external Marker(LatLng latlng, [MarkerOptions options]);
+
+  /// precision is the number of decimal places for coordinates. The default value is 6 places.
+  /// Returns a GeoJSON representation of the marker (as a GeoJSON Point Feature).
+  external dynamic toGeoJSON(double precision);
+
+  /// Returns the current geographical position of the marker.
+  external LatLng getLatLng();
+
+  /// Changes the marker position to the given point.
+  external Marker setLatLng(LatLng latlng);
+
+  /// Changes the zIndex offset of the marker.
+  external Marker setZIndexOffset(double offset);
+
+  /// Returns the current icon used by the marker
+  external Icon getIcon();
+
+  /// Changes the marker icon.
+  external Marker setIcon(Icon icon);
+
+  /// Changes the opacity of the marker.
+  external Marker setOpacity(double value);
 }
 
 @JS()

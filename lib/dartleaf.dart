@@ -8,3 +8,5 @@ export 'src/crs.dart';
 export 'src/marker.dart';
 export 'src/path.dart';
 export 'src/popup.dart';
+export 'src/icon.dart';
+export 'src/point.dart';
