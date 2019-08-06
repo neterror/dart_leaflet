@@ -1,8 +1,9 @@
-name: leaflet
-description: Wrapper around the leaflet JS 1.5.1 library. 
-version: 0.0.1
-author: Plamen Todorov <neterror@github.com>
+name: dartleaf
+description: JS interop wrapper for the leaflet JS 1.5.1 library. 
+version: 0.0.1-dev.1
+author: Plamen Todorov <androplam@gmail.com>
 repository: https://github.com/neterror/dart_leaflet.git
+homepage: https://github.com/neterror/dart_leaflet
 
 environment:
   sdk: '>=2.4.0 <3.0.0'
