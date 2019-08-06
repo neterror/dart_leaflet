@@ -8,6 +8,7 @@ import 'leaflet_map.dart';
 import 'popup.dart';
 import 'latlng.dart';
 import 'tooltip.dart';
+import 'evented.dart';
 
 @JS("L.layer")
 class Layer {
@@ -39,7 +40,7 @@ class Layer {
   external Layer beforeAdd(LeafletMap map);
 
   /// Binds a popup to the layer with the passed content and sets up the necessary event listeners.
-  /// If a Function is passed it will receive the layer as the first argument and should return a String or HTMLElement 
+  /// If a Function is passed it will receive the layer as the first argument and should return a String or HTMLElement
   external bindPopup(Popup content);
 
   /// Removes the popup previously bound with bindPopup.
@@ -217,7 +218,7 @@ class GridLayerOptions extends LayerOptions {
 }
 
 @JS("L.tileLayer")
-class TileLayer extends GridLayer {
+class TileLayer extends GridLayer with Evented {
   /// Instantiates a tile layer object given a URL template and optionally an options object.
   external TileLayer(String urlTemplate, [TileLayerOptions options]);
 

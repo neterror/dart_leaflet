@@ -7,10 +7,11 @@ import 'layer.dart';
 import 'latlng.dart';
 import 'latlng_bounds.dart';
 import 'point.dart';
+import 'evented.dart';
 
 @JS()
 @anonymous
-class Path extends Layer {
+class Path extends Layer with Evented {
   /// Redraws the layer. Sometimes useful after you changed the coordinates that the path uses.
   external Path redraw();
 
@@ -27,8 +28,8 @@ class Path extends Layer {
 @JS()
 @anonymous
 class PathOptions extends LayerOptions {
-  external factory PathOptions({
-      bool stroke,
+  external factory PathOptions(
+      {bool stroke,
       String color,
       double weight,
       double opacity,
@@ -41,8 +42,8 @@ class PathOptions extends LayerOptions {
       double fillOpacity,
       String fillRule,
       Renderer renderer,
-      String className
-  });
+      String className});
+
   /// Whether to draw stroke along the path. Set it to false to   disable borders on polygons or circles.
   external bool get stroke;
   external set stroke(bool value);
@@ -143,6 +144,7 @@ class Polyline extends Path {
 @anonymous
 class PolylineOptions extends PathOptions {
   external factory PolylineOptions();
+
   ///How much to simplify the polyline on each zoom level. More means better performance and smoother look,
   /// and less means more accurate representation.
   external double get smoothFactor;
@@ -189,6 +191,7 @@ class CircleMarker extends Path {
 @anonymous
 class CircleOptions extends PathOptions {
   external factory CircleOptions();
+
   /// Radius of the circle marker, in pixels
   external double get radius;
   external set radius(double value);

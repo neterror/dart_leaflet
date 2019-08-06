@@ -6,9 +6,10 @@ import 'layer.dart';
 import 'icon.dart';
 import 'point.dart';
 import 'latlng.dart';
+import 'evented.dart';
 
 @JS("L.marker")
-class Marker extends Layer {
+class Marker extends Layer with Evented {
   external Marker(LatLng latlng, [MarkerOptions options]);
 
   /// precision is the number of decimal places for coordinates. The default value is 6 places.
@@ -37,8 +38,8 @@ class Marker extends Layer {
 @JS()
 @anonymous
 class MarkerOptions extends InteractiveLayerOptions {
-  external factory MarkerOptions({
-      Icon icon,
+  external factory MarkerOptions(
+      {Icon icon,
       bool keyboard,
       String title,
       String alt,
@@ -51,8 +52,8 @@ class MarkerOptions extends InteractiveLayerOptions {
       bool draggable,
       bool autoPan,
       Point autoPanPadding,
-      double autoPanSpeed
-  });
+      double autoPanSpeed});
+
   /// Icon instance to use for rendering the marker. See Icon documentation
   /// for details on how to customize the marker icon. If not specified, a
   /// common instance of L.Icon.Default is used.

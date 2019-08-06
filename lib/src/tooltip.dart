@@ -4,9 +4,10 @@ library leaflet.tooltip;
 import 'package:js/js.dart';
 import 'layer.dart';
 import 'point.dart';
+import 'evented.dart';
 
 @JS("L.tooltip")
-class Tooltip {
+class Tooltip extends DivOverlay with Evented {
   /// Instantiates a Tooltip object given an optional options object that describes its appearance and location
   /// and an optional source object that is used to tag the tooltip with a reference to the Layer to which it refers.
   external factory Tooltip([TooltipOptions options, Layer source]);
@@ -15,15 +16,15 @@ class Tooltip {
 @JS()
 @anonymous
 class TooltipOptions extends DivOverlay {
-  external factory TooltipOptions({
-      String pane,
+  external factory TooltipOptions(
+      {String pane,
       Point offset,
       String direction,
       bool permanent,
       bool sticky,
       bool interactive,
-      double opacity
-  });
+      double opacity});
+
   /// Map pane where the tooltip will be added.
   external String get pane;
   external set pane(String value);

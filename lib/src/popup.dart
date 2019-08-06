@@ -7,9 +7,10 @@ import 'layer.dart';
 import 'point.dart';
 import 'latlng.dart';
 import 'leaflet_map.dart';
+import 'evented.dart';
 
 @JS("L.popup")
-class Popup extends DivOverlay {
+class Popup extends DivOverlay with Evented {
   external Popup([PopupOptions options, Layer source]);
 
   /// Returns the geographical point of popup.
@@ -48,8 +49,8 @@ class Popup extends DivOverlay {
 @JS()
 @anonymous
 class PopupOptions extends DivOverlayOptions {
-  external factory PopupOptions({
-      double maxWidth,
+  external factory PopupOptions(
+      {double maxWidth,
       double minWidth,
       double maxHeight,
       double autoPan,
@@ -60,8 +61,7 @@ class PopupOptions extends DivOverlayOptions {
       bool autoClose,
       bool closeOnEscapeKey,
       bool closeOnClick,
-      String className
-  });
+      String className});
 
   /// Max width of the popup, in pixels.
   external double get maxWidth;

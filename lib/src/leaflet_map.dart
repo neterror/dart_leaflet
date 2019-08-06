@@ -15,9 +15,10 @@ import 'path.dart';
 import 'control.dart';
 import 'locate_options.dart';
 import 'tooltip.dart';
+import 'evented.dart';
 
 @JS("L.map")
-class LeafletMap {
+class LeafletMap with Evented {
   /// Instantiates a map object given the DOM ID of a <div> element and optionally an object literal with LeafletMap options
   external LeafletMap(String id, [MapOptions options]);
 
@@ -68,7 +69,8 @@ class LeafletMap {
   external LeafletMap closeTooltip([Tooltip tooltip]);
 
   /// Sets the view of the map (geographical center and zoom) with the given animation options.
-  external LeafletMap setView(LatLng center, double zoom, [ZoomPanOptions options]);
+  external LeafletMap setView(LatLng center, double zoom,
+      [ZoomPanOptions options]);
 
   /// Sets the zoom of the map.
   external LeafletMap setZoom(double zoom, [ZoomOptions options]);
@@ -81,7 +83,8 @@ class LeafletMap {
 
   /// Zooms the map while keeping a specified geographical point on the map
   /// stationary (e.g. used internally for scroll zoom and double-click zoom).
-  external LeafletMap setZoomAround(LatLng latlng, double zoom, ZoomOptions options);
+  external LeafletMap setZoomAround(
+      LatLng latlng, double zoom, ZoomOptions options);
 
   /// Zooms the map while keeping a specified pixel on the map (relative to the top-left corner) stationary.
 // external LeafletMap setZoomAround(Point offset, double zoom, ZoomOptions);
@@ -99,10 +102,12 @@ class LeafletMap {
   external LeafletMap panBy(Point offset, [PanOptions options]);
 
   /// Sets the view of the map (geographical center and zoom) performing a smooth pan-zoom animation.
-  external LeafletMap flyTo(LatLng latlng, [double zoom, ZoomPanOptions options]);
+  external LeafletMap flyTo(LatLng latlng,
+      [double zoom, ZoomPanOptions options]);
 
   /// Sets the view of the map with a smooth animation like flyTo, but takes a bounds parameter like fitBounds.
-  external LeafletMap flyToBounds(LatLngBounds bounds, [FitBoundOptions options]);
+  external LeafletMap flyToBounds(LatLngBounds bounds,
+      [FitBoundOptions options]);
 
   ///  Restricts the map view to the given bounds (see the maxBounds option).
   external LeafletMap setMaxBounds([Bounds bounds]);
@@ -116,7 +121,8 @@ class LeafletMap {
   /// Pans the map to the closest view that would lie inside the given
   /// bounds (if it's not already), controlling the animation using the
   /// options specific, if any.
-  external LeafletMap panInsideBounds(LatLngBounds bounds, [PanOptions options]);
+  external LeafletMap panInsideBounds(LatLngBounds bounds,
+      [PanOptions options]);
 
   /// Pans the map the minimum amount to make the latlng visible. Use
   /// padding, paddingTopLeft and paddingTopRight options to fit the display
