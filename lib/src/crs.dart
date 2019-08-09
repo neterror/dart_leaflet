@@ -11,7 +11,7 @@ import 'latlng_bounds.dart';
 @JS("CRS")
 class CRS extends Layer {
   /// Projects geographical coordinates into pixel coordinates for a given zoom.
-  external Point latLngToPoint(LatLnglatlng, double zoom);
+  external Point latLngToPoint(LatLng latlng, double zoom);
 
   /// The inverse of latLngToPoint. Projects pixel coordinates on a given zoom into geographical coordinates.
   external LatLng pointToLatLng(Point point, double zoom);

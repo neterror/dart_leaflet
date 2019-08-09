@@ -290,3 +290,46 @@ class DivOverlayOptions extends LayerOptions {
   external String get pane;
   external set pane(String value);
 }
+
+@JS("L.layerGroup")
+class LayerGroup extends Layer with Evented {
+  external LayerGroup([List<Layer> layers, LayerOptions options]);
+
+  /// precision is the number of decimal places for coordinates. The default value is 6 places. Returns
+  /// a GeoJSON representation of the layer group (as a GeoJSON FeatureCollection, GeometryCollection, or MultiPoint).
+  external toGeoJSON([double precision]);
+
+  /// Adds the given layer to the group.
+  external LayerGroup addLayer(Layer layer);
+
+  /// Removes the layer with the given internal ID from the group.
+  external LayerGroup removeLayer(double id);
+
+  /// Returns true if the given internal ID is currently added to the group.
+  external bool hasLayer(double id);
+
+  /// Removes all the layers from the group.
+  external LayerGroup clearLayers();
+
+  /// Calls methodName on every layer contained in this group, passing any additional parameters. Has no
+  /// effect if the layers contained do not implement methodName.
+  external LayerGroup invoke(String methodName);
+
+  /// Iterates over the layers of the group, optionally specifying context of the iterator function.
+  /// group.eachLayer(function (layer) {
+  ///   layer.bindPopup('Hello');
+  ///});
+  external LayerGroup eachLayer(Function fn);
+
+  /// Returns the layer with the given internal ID.
+  external Layer getLayer(double id);
+
+  /// Returns an array of all the layers added to the group.
+  external List<Layer> getLayers();
+
+  /// Calls setZIndex on every layer contained in this group, passing the z-index.
+  external LayerGroup setZIndex(double zIndex);
+
+  /// Returns the internal ID for a layer
+  external double getLayerId(List<Layer> layer);
+}

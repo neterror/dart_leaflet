@@ -10,3 +10,5 @@ export 'src/path.dart';
 export 'src/popup.dart';
 export 'src/icon.dart';
 export 'src/point.dart';
+export 'src/evented.dart';
+export 'src/geojson.dart';
