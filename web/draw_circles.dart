@@ -13,28 +13,22 @@ class DrawCircles implements Draw{
   @override
   set active(bool draw) {
     if (draw) {
-      _map.on(E.mousedown, _drawCircleStart);
+      _map.on(E.mousedown, (e) => _circleMarker != null ? _drawCircleEnd(e) : _drawCircleStart(e));
       _map.on(E.mousemove, _drawCircle);
     } else {
       _map.off(E.mousedown);
-      _map.off(E.mouseup);
       _map.off(E.mousemove);
     }
   }
 
   void _drawCircleStart(MouseEvent e) {
-    print("invoked draw circle start");
-    if (_circleMarker != null) {
-      _drawCircleEnd(e);
-      return;
-    }
     _centerCoord = e.latlng;
     _centerPoint = e.layerPoint;
     var options = CircleOptions()
       ..color = 'red'
       ..fillColor = '#f03'
       ..fillOpacity = 0.5
-      ..radius = 25;
+      ..radius = 1;
 
     _circleMarker = CircleMarker(_centerCoord, options);
     _circleMarker.addTo(_map);
