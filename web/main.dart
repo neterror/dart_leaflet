@@ -39,15 +39,15 @@ void main() {
 
 
   var g = Geometry(type: Type.point, coordinates: [27.93570, 43.21247]);
-  var f = Feature(type: Type.feature, geometry: g, properties: {
+  var f = feature(geometry: g, properties: {
     'show_on_map': false,
     "name": "MyTest",
     "amenity": "The Amenity",
     "popupContent": "baaa"
   });
   var op = GeoJsonOptions(
-    pointToLayer: (Feature feature, LatLng latlng) => CircleMarker(latlng, circleOp),
-    onEachFeature: (Feature feature, Layer layer) {
+    pointToLayer: (var feature, LatLng latlng) => CircleMarker(latlng, circleOp),
+    onEachFeature: (var feature, Layer layer) {
     if (feature.properties != null &&
         feature.properties.containsKey("popupContent")) {
       var popup = Popup()..setContent(feature.properties["popupContent"]);
@@ -57,9 +57,7 @@ void main() {
 
   GeoJson(f, op).addTo(map);
 
-  var o = 0.1;
-  var f2 = Feature(
-      type: Type.feature,
+  var f2 = feature(
       geometry: Geometry(type: Type.polygon, coordinates: [
         [
           [
@@ -82,15 +80,13 @@ void main() {
       ]));
 //  GeoJson(f2).addTo(map);
 
-  var lightRailStop = FeatureCollection(type: "FeatureCollection", features: [
-    Feature(
-        type: "Feature",
+  var lightRailStop = featureCollection(features: [
+    feature(
         properties: {"popupContent": "18th & California Light Rail Stop"},
-        geometry: Geometry(type: "Point", coordinates: [27.94570, 43.21447])),
-    Feature(
-        type: "Feature",
+        geometry: Geometry(type: Type.point, coordinates: [27.94570, 43.21447])),
+    feature(
         properties: {"popupContent": "20th & Welton Light Rail Stop"},
-        geometry: Geometry(type: "Point", coordinates: [27.94970, 43.11447]))
+        geometry: Geometry(type: Type.point, coordinates: [27.94970, 43.11447]))
   ]);
 
 

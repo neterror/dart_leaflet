@@ -7,23 +7,7 @@ import 'latlng_bounds.dart';
 import 'path.dart';
 import 'evented.dart';
 
-@JS()
-@anonymous
-class FeatureCollection {
-  external factory FeatureCollection({
-    String type,
-    List<Feature> features
-  });
-  external String get type;
-  external set type(String value);
-
-  external List<Feature> get features;
-  external set features(List<Feature> value);
-}
-
 class Type {
-  static const feature = "Feature";
-
   /// For type "Point", the "coordinates" member is a single position.
   static const point = "Point";
 
@@ -43,8 +27,6 @@ class Type {
   static const multiPolygon = "MultiPolygon";
 }
 
-
-
 @JS()
 @anonymous
 class Geometry {
@@ -57,14 +39,11 @@ class Geometry {
   external set coordinates(List value);
 }
 
-
 @JS()
 @anonymous
-class Feature {
-  external factory Feature(
-      {String type = "Feature",
-      Geometry geometry,
-      Map<String, dynamic> properties});
+class _Feature {
+  external factory _Feature(
+      {String type, Geometry geometry, Map<String, dynamic> properties});
 
   external String get type;
   external set type(String value);
@@ -75,6 +54,23 @@ class Feature {
   external Map<String, dynamic> get properties;
   external set properties(Map<String, dynamic> value);
 }
+
+@JS()
+@anonymous
+class _FeatureCollection {
+  external factory _FeatureCollection({String type, List<_Feature> features});
+  external String get type;
+  external set type(String value);
+
+  external List<_Feature> get features;
+  external set features(List<_Feature> value);
+}
+
+_Feature feature({Geometry geometry, Map<String, dynamic> properties}) =>
+    _Feature(type: "Feature", geometry: geometry, properties: properties);
+
+_FeatureCollection featureCollection({List<_Feature> features}) =>
+    _FeatureCollection(type: "FeatureCollection", features: features);
 
 @JS("L.layerGroup")
 class FeatureGroup extends LayerGroup with Evented {
@@ -88,7 +84,7 @@ class FeatureGroup extends LayerGroup with Evented {
   external FeatureGroup bringToFront();
 
   /// Brings the layer group to the back of all other layers
-  external Feature bringToBack();
+  external _Feature bringToBack();
 
   /// Returns the LatLngBounds of the Feature Group (created from bounds and coordinates of its children).
   external LatLngBounds getBounds();
@@ -97,12 +93,12 @@ class FeatureGroup extends LayerGroup with Evented {
 @JS('L.geoJSON')
 class GeoJson extends FeatureGroup with Evented {
   //  external GeoJson([Feature feature, GeoJsonOptions options]);
-  external GeoJson([Feature feature, GeoJsonOptions options]);
+  external GeoJson([_Feature feature, GeoJsonOptions options]);
   external GeoJson.fromCollection(
-      [FeatureCollection collection, GeoJsonOptions options]);
+      [_FeatureCollection collection, GeoJsonOptions options]);
 
   /// Adds a GeoJSON object to the layer.
-  external GeoJson addData(Feature data);
+  external GeoJson addData(_Feature data);
 
   /// Resets the given vector layer's style to the original GeoJSON style, useful for resetting style after hover events.
   external GeoJson resetStyle(Layer layer);
