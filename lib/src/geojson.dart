@@ -10,6 +10,10 @@ import 'evented.dart';
 @JS()
 @anonymous
 class FeatureCollection {
+  external factory FeatureCollection({
+    String type,
+    List<Feature> features
+  });
   external String get type;
   external set type(String value);
 
@@ -39,24 +43,28 @@ class Type {
   static const multiPolygon = "MultiPolygon";
 }
 
+
+
 @JS()
 @anonymous
 class Geometry {
-
-  external factory Geometry({String type, List<double> coordinates});
+  external factory Geometry({String type, List coordinates});
 
   external String get type;
   external set type(String value);
 
-  external List<double> get coordinates;
-  external set coordinates(List<double> value);
+  external List get coordinates;
+  external set coordinates(List value);
 }
 
 
 @JS()
 @anonymous
 class Feature {
-  external factory Feature({String type = "Feature", Geometry geometry, Map<String, dynamic> properties});
+  external factory Feature(
+      {String type = "Feature",
+      Geometry geometry,
+      Map<String, dynamic> properties});
 
   external String get type;
   external set type(String value);
@@ -106,12 +114,12 @@ class GeoJson extends FeatureGroup with Evented {
 @JS()
 @anonymous
 class GeoJsonOptions extends LayerOptions {
-  external factory GeoJsonOptions({
-    Function pointToLayer,
-    Function style,
-    Function onEachFeature,
-    Function filter
-  });
+  external factory GeoJsonOptions(
+      {Function pointToLayer,
+      Function style,
+      Function onEachFeature,
+      Function filter});
+
   /// A Function defining how GeoJSON points spawn Leaflet layers. It is internally called when data is added,
   /// passing the GeoJSON point feature and its LatLng. The default is to spawn a default Marker:
   /// function(geoJsonPoint, latlng) {

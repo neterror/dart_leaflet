@@ -190,7 +190,10 @@ class CircleMarker extends Path {
 @JS()
 @anonymous
 class CircleOptions extends PathOptions {
-  external factory CircleOptions();
+  external factory CircleOptions({
+    double radius,
+    
+  });
 
   /// Radius of the circle marker, in pixels
   external double get radius;

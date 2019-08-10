@@ -22,13 +22,21 @@ void main() {
       iconAnchor: Point(13, 41),
       popupAnchor: Point(0, 0)));
 
-
   Marker(LatLng(43.21047, 27.93470))
     ..bindPopup(pop1)
     ..bindTooltip("Click to learn more")
     ..setIcon(icon)
     ..addTo(map)
     ..on('click', (_) => print("you did it!!"));
+
+  var circleOp = CircleOptions()
+  ..radius = 8
+  ..fillColor = "#ff7800"
+  ..color = "#000"
+  ..weight = 1
+  ..opacity = 1
+  ..fillOpacity = 0.8;
+
 
   var g = Geometry(type: Type.point, coordinates: [27.93570, 43.21247]);
   var f = Feature(type: Type.feature, geometry: g, properties: {
@@ -37,7 +45,9 @@ void main() {
     "amenity": "The Amenity",
     "popupContent": "baaa"
   });
-  var op = GeoJsonOptions(onEachFeature: (Feature feature, Layer layer) {
+  var op = GeoJsonOptions(
+    pointToLayer: (Feature feature, LatLng latlng) => CircleMarker(latlng, circleOp),
+    onEachFeature: (Feature feature, Layer layer) {
     if (feature.properties != null &&
         feature.properties.containsKey("popupContent")) {
       var popup = Popup()..setContent(feature.properties["popupContent"]);
@@ -46,6 +56,47 @@ void main() {
   });
 
   GeoJson(f, op).addTo(map);
+
+  var o = 0.1;
+  var f2 = Feature(
+      type: Type.feature,
+      geometry: Geometry(type: Type.polygon, coordinates: [
+        [
+          [
+            27.93570,
+            43.21247,
+          ],
+          [
+            27.94570,
+            43.21447,
+          ],
+          [
+            27.92570,
+            43.20447,
+          ],
+          [
+            27.93570,
+            43.21247,
+          ],
+        ]
+      ]));
+//  GeoJson(f2).addTo(map);
+
+  var lightRailStop = FeatureCollection(type: "FeatureCollection", features: [
+    Feature(
+        type: "Feature",
+        properties: {"popupContent": "18th & California Light Rail Stop"},
+        geometry: Geometry(type: "Point", coordinates: [27.94570, 43.21447])),
+    Feature(
+        type: "Feature",
+        properties: {"popupContent": "20th & Welton Light Rail Stop"},
+        geometry: Geometry(type: "Point", coordinates: [27.94970, 43.11447]))
+  ]);
+
+
+
+  GeoJson.fromCollection(lightRailStop).addTo(map);
+
 
   Popup()
     ..setLatLng(LatLng(43.21047, 27.93470))
