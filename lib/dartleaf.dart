@@ -12,3 +12,4 @@ export 'src/icon.dart';
 export 'src/point.dart';
 export 'src/evented.dart';
 export 'src/geojson.dart';
+export 'src/events.dart';

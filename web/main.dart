@@ -1,9 +1,21 @@
 import 'dart:html';
-import 'package:dartleaf/dartleaf.dart';
+
+import 'open_street_map.dart';
 
 void main() {
-  var output = querySelector('#output');
+  var map = OpenStreetMap("output");
+  map.setView(lat: 43.21047, lng: 27.93470, zoom: 15);
 
+  var leaves = querySelector("#drawLeaves") as CheckboxInputElement;
+  var circle = querySelector("#drawCircle") as CheckboxInputElement;
+
+  leaves.onClick.listen((_) => map.putLeaves = leaves.checked);
+  circle.onClick.listen((_) => map.drawCircle = circle.checked);
+
+
+/*
+  var output = querySelector('#output');
+   
   var map = LeafletMap.fromElement(output);
   map.setView(LatLng(43.21047, 27.93470), 17);
   var options = TileLayerOptions()
@@ -106,4 +118,6 @@ void main() {
     ..radius = 25;
 
   Circle(LatLng(43.21047, 27.93470), co).addTo(map);
+
+  */
 }
