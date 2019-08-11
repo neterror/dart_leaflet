@@ -1,4 +1,3 @@
-import 'package:dartleaf/src/leaflet_map.dart';
 import 'package:dartleaf/dartleaf.dart';
 import 'draw.dart';
 
@@ -16,7 +15,7 @@ class DrawFlowers implements Draw {
     }
   }
 
-  void _putLeaf(MouseEvent e) {
+  void _putLeaf(LeafletMouseEvent e) {
     var options = IconOptions(
         shadowUrl: 'imgs/leaf-shadow.png',
         iconUrl: 'imgs/leaf-green.png',

@@ -6,12 +6,10 @@ void main() {
   var map = OpenStreetMap("output");
   map.setView(lat: 43.21047, lng: 27.93470, zoom: 15);
 
-  var leaves = querySelector("#drawLeaves") as CheckboxInputElement;
-  var circle = querySelector("#drawCircle") as CheckboxInputElement;
-
-  leaves.onClick.listen((_) => map.putLeaves = leaves.checked);
-  circle.onClick.listen((_) => map.drawCircle = circle.checked);
-
+  querySelectorAll('input[name=drawOption]').onClick.listen((MouseEvent e) {
+    var btn = e.target as RadioButtonInputElement;
+    map.draw(btn.id, btn.checked);
+  });
 
 /*
   var output = querySelector('#output');

@@ -29,20 +29,24 @@
 
   <div style="width:100%; height: 100%">
     <div id="output" style="width: 80%; height: 100%; float: left"></div>
-    <!-- Rectangular switch -->
-    <div>
-      <label class="switch">
-        <input type="checkbox" id="drawLeaves">
-        <span class="slider">Put flowers</span>
-      </label>
+    <!-- Marker demo -->
+    <form>
+      <input type="radio" name="drawOption" id="none">
+      <label for="none">No Draw</label>
       <br>
-      <!-- Rectangular switch -->
-      <label class="switch">
-        <input type="checkbox" id="drawCircle">
-        <span class="slider">Draw Circle</span>
-      </label>
-    </div>
+      
+      <input type="radio" name="drawOption" id="marker">
+      <label for="marker">Markers</label>
+      <br>
 
+      <input type="radio" name="drawOption" id="circle">
+      <label for="circle">Circles</label>
+      <br>
+
+      <input type="radio" name="drawOption" id="polygon">
+      <label for="polygon">Polygon</label>
+      <br>
+    </form>
 
   </div>
 
