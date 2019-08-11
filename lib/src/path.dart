@@ -8,6 +8,7 @@ import 'latlng.dart';
 import 'latlng_bounds.dart';
 import 'point.dart';
 import 'evented.dart';
+import 'geojson.dart';
 
 @JS()
 @anonymous
@@ -114,13 +115,13 @@ class Polyline extends Path {
 
   /// precision is the number of decimal places for coordinates The default value is 6 places.
   /// Returns a GeoJSON representation of the polyline (as a GeoJSON LineString or MultiLineString Feature).
-  external dynamic toGeoJSON([double precision]);
+  external GeoJson toGeoJSON([double precision]);
 
   /// Returns an array of the points in the path, or nested arrays of points in case of multi-polyline.
   external List<LatLng> getLatLngs();
 
   /// Replaces all the points in the polyline with the given array of geographical points.
-  external Polyline setLatLngs(List<LatLng> latlngs);
+  external Polyline setLatLngs(List latlngs);
 
   /// Returns true if the Polyline has no LatLngs.
   external bool isEmpty();
@@ -172,7 +173,7 @@ class CircleMarker extends Path {
 
   /// precision is the number of decimal places for coordinates. The default value is 6 places.
   /// Returns a GeoJSON representation of the circle marker (as a GeoJSON Point Feature).
-  external dynamic toGeoJSON(double precision);
+  external GeoJson toGeoJSON([double precision]);
 
   /// Sets the position of a circle marker to a new location.
   external CircleMarker setLatLng(LatLng latlng);
@@ -192,7 +193,6 @@ class CircleMarker extends Path {
 class CircleOptions extends PathOptions {
   external factory CircleOptions({
     double radius,
-    
   });
 
   /// Radius of the circle marker, in pixels

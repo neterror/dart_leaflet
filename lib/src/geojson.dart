@@ -66,10 +66,10 @@ class _FeatureCollection {
   external set features(List<_Feature> value);
 }
 
-_Feature feature({Geometry geometry, Map<String, dynamic> properties}) =>
+_Feature makeFeature({Geometry geometry, Map<String, dynamic> properties}) =>
     _Feature(type: "Feature", geometry: geometry, properties: properties);
 
-_FeatureCollection featureCollection({List<_Feature> features}) =>
+_FeatureCollection makeFeatureCollection({List<_Feature> features}) =>
     _FeatureCollection(type: "FeatureCollection", features: features);
 
 @JS("L.layerGroup")

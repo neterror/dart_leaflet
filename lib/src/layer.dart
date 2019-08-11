@@ -9,6 +9,7 @@ import 'popup.dart';
 import 'latlng.dart';
 import 'tooltip.dart';
 import 'evented.dart';
+import 'geojson.dart';
 
 @JS("L.layer")
 class Layer {
@@ -297,7 +298,7 @@ class LayerGroup extends Layer with Evented {
 
   /// precision is the number of decimal places for coordinates. The default value is 6 places. Returns
   /// a GeoJSON representation of the layer group (as a GeoJSON FeatureCollection, GeometryCollection, or MultiPoint).
-  external toGeoJSON([double precision]);
+  external GeoJson toGeoJSON([double precision]);
 
   /// Adds the given layer to the group.
   external LayerGroup addLayer(Layer layer);

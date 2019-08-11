@@ -148,14 +148,14 @@ class LeafletEvent {
 
 @JS()
 @anonymous
-class KeyboardEvent extends LeafletEvent {
+class LeafletKeyboardEvent extends LeafletEvent {
   /// The original DOM KeyboardEvent  that triggered this Leaflet event.
   external Event get originalEvent;
 }
 
 @JS()
 @anonymous
-class MouseEvent extends LeafletEvent {
+class LeafletMouseEvent extends LeafletEvent {
   /// The geographical point where the mouse event occured.
   external LatLng get latlng;
 
@@ -171,7 +171,7 @@ class MouseEvent extends LeafletEvent {
 
 @JS()
 @anonymous
-class LocationEvent extends LeafletEvent {
+class LeafletLocationEvent extends LeafletEvent {
   /// Detected geographical location of the user.
   external LatLng get latlng;
 
@@ -199,7 +199,7 @@ class LocationEvent extends LeafletEvent {
 
 @JS()
 @anonymous
-class ErrorEvent extends LeafletEvent {
+class LeafletErrorEvent extends LeafletEvent {
   /// Error message.
   external String get message;
 
@@ -209,14 +209,14 @@ class ErrorEvent extends LeafletEvent {
 
 @JS()
 @anonymous
-class LayerEvent extends LeafletEvent {
+class LeafletLayerEvent extends LeafletEvent {
   /// The layer that was added or removed.
   external Layer get layer;
 }
 
 @JS()
 @anonymous
-class LayersControlEvent extends LeafletEvent {
+class LeafletLayersControlEvent extends LeafletEvent {
   ///  The layer that was added or removed.
   external Layer get layer;
 
@@ -226,14 +226,14 @@ class LayersControlEvent extends LeafletEvent {
 
 @JS()
 @anonymous
-class TileEvent extends LeafletEvent {
+class LeafletTileEvent extends LeafletEvent {
   ///  The tile element (image). coords Point Point object with the tile's x, y, and z (zoom level) coordinates.
   external Element get tile;
 }
 
 @JS()
 @anonymous
-class TileErrorEvent extends LeafletEvent {
+class LeafletTileErrorEvent extends LeafletEvent {
   /// The tile element (image).
   external Element get tile;
 
@@ -246,7 +246,7 @@ class TileErrorEvent extends LeafletEvent {
 
 @JS()
 @anonymous
-class ResizeEvent extends LeafletEvent {
+class LeafletResizeEvent extends LeafletEvent {
   /// The old size before resize event.
   external Point get oldSize;
 
@@ -256,7 +256,7 @@ class ResizeEvent extends LeafletEvent {
 
 @JS()
 @anonymous
-class GeoJSONEvent {
+class LeafletGeoJSONEvent {
   /// The layer for the GeoJSON feature that is being  added to the map.
   external Layer get layer;
 
@@ -272,28 +272,28 @@ class GeoJSONEvent {
 
 @JS()
 @anonymous
-class PopupEvent extends LeafletEvent {
+class LeafletPopupEvent extends LeafletEvent {
   /// The popup that was opened or closed.
   external Popup get popup;
 }
 
 @JS()
 @anonymous
-class TooltipEvent extends LeafletEvent {
+class LeafletTooltipEvent extends LeafletEvent {
   ///  The tooltip that was opened or closed.
   external Tooltip get tooltip;
 }
 
 @JS()
 @anonymous
-class DragEndEvent {
+class LeafletDragEndEvent {
   ///  The distance in pixels the draggable element was moved by.
   external double get distance;
 }
 
 @JS()
 @anonymous
-class ZoomAnimEvent {
+class LeafletZoomAnimEvent {
   /// The current center of the map
   external LatLng get center;
 

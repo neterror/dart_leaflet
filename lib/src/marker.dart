@@ -7,6 +7,7 @@ import 'icon.dart';
 import 'point.dart';
 import 'latlng.dart';
 import 'evented.dart';
+import 'geojson.dart';
 
 @JS("L.marker")
 class Marker extends Layer with Evented {
@@ -14,7 +15,7 @@ class Marker extends Layer with Evented {
 
   /// precision is the number of decimal places for coordinates. The default value is 6 places.
   /// Returns a GeoJSON representation of the marker (as a GeoJSON Point Feature).
-  external dynamic toGeoJSON(double precision);
+  external GeoJson toGeoJSON([double precision]);
 
   /// Returns the current geographical position of the marker.
   external LatLng getLatLng();
