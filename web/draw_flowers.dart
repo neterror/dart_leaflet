@@ -15,6 +15,10 @@ class DrawFlowers implements Draw {
     }
   }
 
+  @override
+  String get geoJson => "Not implemented";
+
+
   void _putLeaf(LeafletMouseEvent e) {
     var options = IconOptions(
         shadowUrl: 'imgs/leaf-shadow.png',

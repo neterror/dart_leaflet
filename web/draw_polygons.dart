@@ -1,10 +1,18 @@
+import 'dart:convert';
 import 'dart:html';
-import 'dart:js';
 import 'package:dartleaf/dartleaf.dart';
 import 'draw.dart';
 
+/// Left click adds a point, right click removes point
 class DrawPolygons implements Draw {
   final LeafletMap _map;
+  CircleMarker _firstMark;
+
+  final _featureCollection = <String, dynamic>{
+    "type": "FeatureCollection",
+    "features": <Map>[]
+  };
+
   Polyline _polyline = Polyline([]);
   Polyline _dashLine = Polyline([]);
   // when JS method returns an object, defined in the dart sources, its type is not the Dart type
@@ -15,7 +23,6 @@ class DrawPolygons implements Draw {
   //List of CircleMarkers. Work as dynamic list instead of CircleMarker due to the JS interop problem above
   final _points = [];
   bool _ready = false;
-  CircleMarker _firstMark; //mark it separately as
 
   DrawPolygons(this._map);
 
@@ -34,6 +41,9 @@ class DrawPolygons implements Draw {
     ..weight = 2
     ..opacity = 1
     ..fillOpacity = 0.9;
+
+  @override
+  String get geoJson => jsonEncode(_featureCollection);
 
   @override
   set active(bool draw) {
@@ -105,8 +115,7 @@ class DrawPolygons implements Draw {
   _mouseMove(LeafletMouseEvent e) {
     if (_points.isEmpty) return;
     _drawDashLine(e);
-    LatLng first = _firstMark.getLatLng();
-    double distance = first.distanceTo(e.latlng);
+    double distance = _firstMark.getLatLng().distanceTo(e.latlng);
     _ready = (distance < 20);
     if (_ready) {
       _firstMark.setStyle(_accentNode);
@@ -120,6 +129,8 @@ class DrawPolygons implements Draw {
     _firstMark.setStyle(_normalNode);
     _hideDashLine();
 
+    _addFeature();
+
     _points.clear();
     _polyline = Polyline([]);
     _polyline.addTo(_map);
@@ -127,4 +138,20 @@ class DrawPolygons implements Draw {
     _firstMark = null;
     _ready = false;
   }
+
+  void _addFeature() {
+    var polygon = <String, dynamic>{
+      "type": "Feature",
+      "geometry": {"type": "Polygon", "coordinates": []}
+    };
+
+    for (var mark in _points) {
+      var p = mark.getLatLng();
+      polygon["geometry"]["coordinates"].add([p.lng, p.lat]);
+    }
+    
+    _featureCollection["features"].add(polygon);
+  }
 }
+
+

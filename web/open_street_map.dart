@@ -37,6 +37,8 @@ class OpenStreetMap {
     }
   }
 
+  String get geoJson => _painters["polygon"].geoJson;
+
   void setView({double lat, double lng, double zoom = 10}) =>
       _map.setView(LatLng(lat, lng), zoom);
 }

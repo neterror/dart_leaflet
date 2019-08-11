@@ -30,6 +30,15 @@ class LatLng {
 
   ///Returns a new LatLngBounds object in which each boundary is sizeInMeters/2 meters apart from the LatLng.
   external LatLngBounds toBounds(double number);
+
+  external double get lat;
+  external set lat(double value);
+
+  external double get lng;
+  external set lng(double value);
+
+  external double get alt;
+  external set alt(double value);
 }
 
 @JS()

@@ -1,4 +1,3 @@
-import 'dart:js';
 import 'package:dartleaf/dartleaf.dart';
 import 'draw.dart';
 
@@ -9,6 +8,9 @@ class DrawCircles implements Draw {
   CircleMarker _circleMarker;
 
   DrawCircles(this._map);
+
+  @override
+  String get geoJson => "Not implemented";
 
   @override
   set active(bool draw) {
@@ -39,7 +41,6 @@ class DrawCircles implements Draw {
 
   void _drawCircleEnd(LeafletMouseEvent e) {
     print("draw circle end");
-    var json = _circleMarker.toGeoJSON();
     _centerCoord = null;
     _centerPoint = null;
     _circleMarker = null;
