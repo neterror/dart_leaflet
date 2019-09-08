@@ -13,7 +13,6 @@ mixin ZoomOptions {
   external set animate(bool value);
 }
 
-
 @JS()
 @anonymous
 mixin PanOptions {
@@ -38,8 +37,6 @@ mixin PanOptions {
   external set noMoveStart(bool value);
 }
 
-
 @JS()
 @anonymous
-class ZoomPanOptions with ZoomOptions, PanOptions {
-}
+class ZoomPanOptions with ZoomOptions, PanOptions {}

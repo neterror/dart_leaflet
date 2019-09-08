@@ -26,9 +26,7 @@ class Control {
 @JS()
 @anonymous
 class ControlOptions {
-  external factory ControlOptions({
-      String position
-  });
+  external factory ControlOptions({String position});
 
   /// The position of the control (one of the map corners). Possible values are 'topleft', 'topright', 'bottomleft' or   'bottomright'
   external String get position;

@@ -20,8 +20,8 @@ class Icon {
 @JS()
 @anonymous
 class IconOptions {
-  external factory IconOptions({
-      String iconUrl,
+  external factory IconOptions(
+      {String iconUrl,
       String iconRetinaUrl,
       Point iconSize,
       Point iconAnchor,
@@ -31,8 +31,7 @@ class IconOptions {
       String shadowRetinaUrl,
       Point shadowSize,
       Point shadowAnchor,
-      String className
-  });
+      String className});
 
   /// (required) The URL to the icon image (absolute or relative to your script path).
   external String get iconUrl;

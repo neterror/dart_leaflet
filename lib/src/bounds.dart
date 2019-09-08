@@ -11,12 +11,12 @@ class Bounds {}
 @JS()
 @anonymous
 class FitBoundOptions {
-  external factory FitBoundOptions({
-      Point paddingTopLeft,
+  external factory FitBoundOptions(
+      {Point paddingTopLeft,
       Point paddingBottomRight,
       Point padding,
-      double maxZoom
-  });
+      double maxZoom});
+
   /// Sets the amount of padding in the top left corner of a map container that shouldn't be accounted for
   /// when setting the view to fit bounds. Useful if you have some control overlays on the map like a sidebar
   /// and you don't want them to obscure objects you're zooming to.

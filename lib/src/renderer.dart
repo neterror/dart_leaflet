@@ -11,7 +11,7 @@ class Renderer extends Layer {
   external double get padding;
   external set padding(double value);
 
-   /// How much to extend click tolerance round a path/object on the map
+  /// How much to extend click tolerance round a path/object on the map
   external double get tolerance;
   external set tolerance(double value);
 }
