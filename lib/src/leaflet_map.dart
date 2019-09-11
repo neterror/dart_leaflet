@@ -16,6 +16,7 @@ import 'control.dart';
 import 'locate_options.dart';
 import 'tooltip.dart';
 import 'evented.dart';
+import 'handler.dart';
 
 @JS("L.map")
 class LeafletMap with Evented {
@@ -266,6 +267,37 @@ class LeafletMap with Evented {
   /// Adds a listener function (fn) to a particular event type of the object. You can optionally specify the context of the listener
   /// (object the this keyword will point to). You can also pass several space-separated types (e.g. 'click dblclick').
   external LeafletMap on(String type, Function fn, [dynamic context]);
+
+  ///Handlers
+  /////////
+  ///
+  /// Box (shift-drag with mouse) zoom handler.
+  external Handler get boxZoom;
+  external set boxZoom(Handler value);
+
+  /// Double click zoom handler.
+  external Handler get doubleClickZoom;
+  external set doubleClickZoom(Handler value);
+
+  /// Map dragging handler (by both mouse and touch).
+  external Handler get dragging;
+  external set dragging(Handler value);
+
+  ///Keyboard navigation handler.
+  external Handler get keyboard;
+  external set keyboard(Handler value);
+
+///Scroll wheel zoom handler.
+  external Handler get scrollWheelZoom;
+  external set scrollWheelZoom(Handler value);
+
+///Mobile touch hacks (quick tap and touch hold) handler.
+  external Handler get tap;
+  external set tap(Handler value);
+
+///Touch zoom handler.
+  external Handler get touchZoom;
+  external set touchZoom(Handler value);
 }
 
 @JS()

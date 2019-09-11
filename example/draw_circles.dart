@@ -15,6 +15,7 @@ class DrawCircles implements Draw {
   @override
   set active(bool draw) {
     if (draw) {
+      _map.dragging.disable();
       _map.on(
           E.mousedown,
           (e) =>
@@ -23,6 +24,7 @@ class DrawCircles implements Draw {
     } else {
       _map.off(E.mousedown);
       _map.off(E.mousemove);
+      _map.dragging.enable();
     }
   }
 

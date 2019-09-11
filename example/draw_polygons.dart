@@ -48,6 +48,7 @@ class DrawPolygons implements Draw {
   @override
   set active(bool draw) {
     if (draw) {
+      _map.dragging.disable();
       _map.on(E.mousedown, _buttonDown);
       _map.on(E.mousemove, _mouseMove);
 
@@ -55,6 +56,7 @@ class DrawPolygons implements Draw {
       _dashLine.addTo(_map);
       _dashLine.setStyle(PolylineOptions()..dashArray = "4");
     } else {
+      _map.dragging.enable();
       _map.off(E.mousedown);
       _map.off(E.mousemove);
 
