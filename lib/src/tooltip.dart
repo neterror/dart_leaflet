@@ -15,7 +15,7 @@ class Tooltip extends DivOverlay with Evented {
 
 @JS()
 @anonymous
-class TooltipOptions extends DivOverlay {
+class TooltipOptions extends DivOverlayOptions {
   external factory TooltipOptions(
       {String pane,
       Point offset,
@@ -28,10 +28,6 @@ class TooltipOptions extends DivOverlay {
   /// Map pane where the tooltip will be added.
   external String get pane;
   external set pane(String value);
-
-  /// Optional offset of the tooltip position.
-  external Point get offset;
-  external set offset(Point value);
 
   /// Direction where to open the tooltip. Possible values are: right, left, top, bottom, center, auto.
   /// auto will dynamically switch between right and left according to the tooltip position on the map.

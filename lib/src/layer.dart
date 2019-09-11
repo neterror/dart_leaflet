@@ -10,6 +10,7 @@ import 'latlng.dart';
 import 'tooltip.dart';
 import 'evented.dart';
 import 'geojson.dart';
+import 'point.dart';
 
 @JS("L.layer")
 class Layer {
@@ -67,7 +68,7 @@ class Layer {
 
   ///Binds a tooltip to the layer with the passed content and sets up the options>options?)    necessary event listeners.
   /// If a Function is passed it will receive the layer as the first argument and should return a String or HTMLElement.
-  external Tooltip bindTooltip(String content);
+  external Tooltip bindTooltip(String content, [TooltipOptions options]);
 
   /// Removes the tooltip previously bound with bindTooltip.
   external Layer unbindTooltip();

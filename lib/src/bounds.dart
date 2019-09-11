@@ -4,9 +4,10 @@ library leaflet.bounds;
 import 'package:js/js.dart';
 import 'point.dart';
 
-@JS()
-@anonymous
-class Bounds {}
+@JS("L.bounds")
+class Bounds {
+  //TODO add the bounds
+}
 
 @JS()
 @anonymous
