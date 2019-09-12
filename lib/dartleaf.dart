@@ -13,3 +13,4 @@ export 'src/point.dart';
 export 'src/evented.dart';
 export 'src/geojson.dart';
 export 'src/events.dart';
+export 'src/tooltip.dart';
