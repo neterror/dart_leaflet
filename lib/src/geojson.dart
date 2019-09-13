@@ -41,8 +41,8 @@ class Geometry {
 
 @JS()
 @anonymous
-class _Feature {
-  external factory _Feature(
+class GeoJson {
+  external factory GeoJson(
       {String type, Geometry geometry, Map<String, dynamic> properties});
 
   external String get type;
@@ -55,96 +55,4 @@ class _Feature {
   external set properties(Map<String, dynamic> value);
 }
 
-@JS()
-@anonymous
-class _FeatureCollection {
-  external factory _FeatureCollection({String type, List<_Feature> features});
-  external String get type;
-  external set type(String value);
 
-  external List<_Feature> get features;
-  external set features(List<_Feature> value);
-}
-
-_Feature makeFeature({Geometry geometry, Map<String, dynamic> properties}) =>
-    _Feature(type: "Feature", geometry: geometry, properties: properties);
-
-_FeatureCollection makeFeatureCollection({List<_Feature> features}) =>
-    _FeatureCollection(type: "FeatureCollection", features: features);
-
-@JS("L.layerGroup")
-class FeatureGroup extends LayerGroup with Evented {
-  /// Create a feature group, optionally given an initial set of layers.
-  external FeatureGroup([List<Layer> layers]);
-
-  /// Sets the given path options to each layer of the group that has a setStyle method
-  external FeatureGroup setStyle(PathOptions style);
-
-  /// Brings the layer group to the top of all other layers
-  external FeatureGroup bringToFront();
-
-  /// Brings the layer group to the back of all other layers
-  external _Feature bringToBack();
-
-  /// Returns the LatLngBounds of the Feature Group (created from bounds and coordinates of its children).
-  external LatLngBounds getBounds();
-}
-
-@JS('L.geoJSON')
-class GeoJson extends FeatureGroup with Evented {
-  //  external GeoJson([Feature feature, GeoJsonOptions options]);
-  external GeoJson([_Feature feature, GeoJsonOptions options]);
-  external GeoJson.fromCollection(
-      [_FeatureCollection collection, GeoJsonOptions options]);
-
-  /// Adds a GeoJSON object to the layer.
-  external GeoJson addData(_Feature data);
-
-  /// Resets the given vector layer's style to the original GeoJSON style, useful for resetting style after hover events.
-  external GeoJson resetStyle(Layer layer);
-
-  /// Changes styles of GeoJSON vector layers with the given style function.
-  external GeoJson setStyle(PathOptions style);
-}
-
-@JS()
-@anonymous
-class GeoJsonOptions extends LayerOptions {
-  external factory GeoJsonOptions(
-      {Function pointToLayer,
-      Function style,
-      Function onEachFeature,
-      Function filter});
-
-  /// A Function defining how GeoJSON points spawn Leaflet layers. It is internally called when data is added,
-  /// passing the GeoJSON point feature and its LatLng. The default is to spawn a default Marker:
-  /// function(geoJsonPoint, latlng) {
-  ///    return L.marker(latlng);
-  ///}
-  external Function get pointToLayer;
-  external set pointToLayer(Function value);
-
-  /// Function defining the Path options for styling GeoJSON lines and polygons, called internally
-  /// when data is added. The default value is to not override any defaults:
-  /// function (geoJsonFeature) {
-  ///    return {}
-  /// }
-  external Function get style;
-  external set style(Function style);
-
-  /// A Function that will be called once for each created Feature, after it has been created and styled.
-  /// Useful for attaching events and popups to features. The default is to do nothing with the newly created layers:
-  /// function (feature, layer) {}
-  external Function get onEachFeature;
-  external set onEachFeature(Function value);
-
-  /// A Function that will be used to decide whether to include a feature or not. The default is to include all features:
-  /// function (geoJsonFeature) {
-  ///    return true;
-  /// }
-  /// Note: dynamically changing the filter option will have effect only on newly added data. It will not re-evaluate already included features.
-  /// coordsToLatLng 	Function 	* 	A Function that will be used for converting GeoJSON coordinates to LatLngs.
-  /// The default is the coordsToLatLng static method.
-  external Function get filter;
-  external set filter(Function value);
-}

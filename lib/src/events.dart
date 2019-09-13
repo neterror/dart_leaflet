@@ -254,21 +254,6 @@ class LeafletResizeEvent extends LeafletEvent {
   external Point get newSize;
 }
 
-@JS()
-@anonymous
-class LeafletGeoJSONEvent {
-  /// The layer for the GeoJSON feature that is being  added to the map.
-  external Layer get layer;
-
-  /// GeoJSON properties of the feature.
-  external JsObject get properties;
-
-  /// GeoJSON geometry type of the feature.
-  external String get geometryType;
-
-  /// GeoJSON ID of the feature (if present).
-  external String get id;
-}
 
 @JS()
 @anonymous
