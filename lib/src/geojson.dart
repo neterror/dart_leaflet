@@ -2,10 +2,6 @@
 library leaflet.geojson;
 
 import 'package:js/js.dart';
-import 'layer.dart';
-import 'latlng_bounds.dart';
-import 'path.dart';
-import 'evented.dart';
 
 class Type {
   /// For type "Point", the "coordinates" member is a single position.
@@ -54,5 +50,3 @@ class GeoJson {
   external Map<String, dynamic> get properties;
   external set properties(Map<String, dynamic> value);
 }
-
-
