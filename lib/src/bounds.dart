@@ -6,7 +6,46 @@ import 'point.dart';
 
 @JS("L.bounds")
 class Bounds {
-  //TODO add the bounds
+  /// Creates a Bounds object from two corners coordinate pairs.
+  external Bounds(Point corner1, Point corner2);
+
+  /// Extends the bounds to contain the given point.
+  external Bounds extend(Point point);
+
+  /// Returns the center point of the bounds.
+  external Point getCenter([bool round]);
+
+  /// Returns the bottom-left point of the bounds.
+  external Point getBottomLeft();
+
+  /// Returns the top-right point of the bounds.
+  external Point getTopRight();
+
+  /// Returns the top-left point of the bounds (i.e. this.min).
+  external Point getTopLeft();
+
+  /// Returns the bottom-right point of the bounds (i.e. this.max).
+  external Point getBottomRight();
+
+  ///Returns the size of the given bounds
+  external Point getSize();
+
+  ///Returns true if the rectangle contains the given one
+  external bool contains(Bounds otherBounds);
+
+  ///Returns true if the rectangle intersects the given bounds. Two bounds intersect if they have at least one point in common.
+  external bool intersects(Bounds otherBounds);
+
+  ///Returns true if the rectangle overlaps the given bounds. Two bounds overlap if their intersection is an area.
+  external bool overlaps(Bounds otherBounds);
+
+  /// The top left corner of the rectangle.
+  external Point get min;
+  external set min(Point value);
+
+  /// The bottom right corner of the rectangle.
+  external Point get max;
+  external set max(Point value);
 }
 
 @JS()
