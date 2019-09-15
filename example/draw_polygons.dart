@@ -142,18 +142,14 @@ class DrawPolygons implements Draw {
   }
 
   void _addFeature() {
-    var polygon = <String, dynamic>{
-      "type": "Feature",
-      "geometry": {"type": "Polygon", "coordinates": []}
+    var geojson = _polyline.toGeoJSON();
+    var json = {
+      'type': 'feature',
+      'geometry': {
+        'type': geojson.geometry.type,
+        'coordinates': geojson.geometry.coordinates
+      }
     };
-
-    for (var mark in _points) {
-      var p = mark.getLatLng();
-      polygon["geometry"]["coordinates"].add([p.lng, p.lat]);
-    }
-    
-    _featureCollection["features"].add(polygon);
+    _featureCollection["features"].add(json);
   }
 }
-
-
