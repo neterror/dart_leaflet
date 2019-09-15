@@ -287,15 +287,15 @@ class LeafletMap with Evented {
   external Handler get keyboard;
   external set keyboard(Handler value);
 
-///Scroll wheel zoom handler.
+  ///Scroll wheel zoom handler.
   external Handler get scrollWheelZoom;
   external set scrollWheelZoom(Handler value);
 
-///Mobile touch hacks (quick tap and touch hold) handler.
+  ///Mobile touch hacks (quick tap and touch hold) handler.
   external Handler get tap;
   external set tap(Handler value);
 
-///Touch zoom handler.
+  ///Touch zoom handler.
   external Handler get touchZoom;
   external set touchZoom(Handler value);
 }

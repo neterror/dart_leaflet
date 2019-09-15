@@ -254,7 +254,6 @@ class LeafletResizeEvent extends LeafletEvent {
   external Point get newSize;
 }
 
-
 @JS()
 @anonymous
 class LeafletPopupEvent extends LeafletEvent {
