@@ -11,7 +11,7 @@ class LatLng {
   external LatLng(double latitude, double longitude, [double altitude]);
 
   /// Expects an array of the form [Number, Number] or [Number, Number, Number] instead
-  external LatLng.fromList(List<double> coordinates);
+  external LatLng.fromList(List coordinates);
 
   /// Expects an plain object of the form {lat: Number, lng: Number} or {lat: Number, lng: Number, alt: Number} instead.
   external LatLng.fromObject(LatCoordinate object);

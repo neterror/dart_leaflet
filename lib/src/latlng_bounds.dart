@@ -14,7 +14,7 @@ class LatLngBounds {
 
   /// Creates a LatLngBounds object defined by the geographical points it contains. Very useful for zooming
   /// the map to fit a particular set of locations with fitBounds.
-  external LatLngBounds.fromArray(List<LatLng> latlngs);
+  external LatLngBounds.fromArray(List latlngs);
 
   /// Extend the bounds to contain the given point
   external LatLngBounds extend(LatLng latlng);

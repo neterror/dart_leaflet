@@ -16,3 +16,6 @@
 
 # 0.1.1 
 * Code format fixed with dartfmt
+
+# 0.1.2
+* Removed type specification on List parameters - use List<dynamic>  to avoid runtime errors 

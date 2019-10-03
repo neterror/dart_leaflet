@@ -53,11 +53,11 @@ class CRS extends Layer {
   /// a given range and how. Defaults to [-180, 180] in most geographical CRSs. If undefined, the
   /// longitude axis does not wrap around.
   external List<double> get wrapLng;
-  external set wrapLng(List<double> value);
+  external set wrapLng(List value);
 
   /// Like wrapLng, but for the latitude (vertical) axis.
   external List<double> get wrapLat;
-  external set wrapLat(List<double> value);
+  external set wrapLat(List value);
 
   /// If true, the coordinate space will be unbounded (infinite in both axes)
   external bool get infinite;

@@ -111,7 +111,7 @@ class Polyline extends Path {
   /// Instantiates a polyline object given an array of geographical points and optionally an options object.
   /// You can create a Polyline object with multiple separate lines (MultiPolyline) by passing an array of
   /// arrays of geographic points.
-  external Polyline(List<LatLng> latlngs, [PolylineOptions options]);
+  external Polyline(List latlngs, [PolylineOptions options]);
 
   /// precision is the number of decimal places for coordinates The default value is 6 places.
   /// Returns a GeoJSON representation of the polyline (as a GeoJSON LineString or MultiLineString Feature).
@@ -158,7 +158,7 @@ class PolylineOptions extends PathOptions {
 
 @JS("L.polygon")
 class Polygon extends Polyline {
-  external factory Polygon(List<LatLng> latlngs, [PolylineOptions options]);
+  external factory Polygon(List latlngs, [PolylineOptions options]);
 }
 
 @JS("L.rectangle")

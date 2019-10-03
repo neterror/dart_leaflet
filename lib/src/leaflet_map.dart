@@ -418,7 +418,7 @@ class MapOptions {
 
   /// Array of layers that will be added to the map initially
   external List<Layer> get layers;
-  external set layers(List<Layer> value);
+  external set layers(List value);
 
   /// When this option is set, the map restricts the view to the given geographical bounds, bouncing the user
   /// back if the user tries to pan outside the view. To set the restriction dynamically, use setMaxBounds

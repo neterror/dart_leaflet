@@ -295,7 +295,7 @@ class DivOverlayOptions extends LayerOptions {
 
 @JS("L.layerGroup")
 class LayerGroup extends Layer with Evented {
-  external LayerGroup([List<Layer> layers, LayerOptions options]);
+  external LayerGroup([List layers, LayerOptions options]);
 
   /// precision is the number of decimal places for coordinates. The default value is 6 places. Returns
   /// a GeoJSON representation of the layer group (as a GeoJSON FeatureCollection, GeometryCollection, or MultiPoint).
@@ -333,5 +333,5 @@ class LayerGroup extends Layer with Evented {
   external LayerGroup setZIndex(double zIndex);
 
   /// Returns the internal ID for a layer
-  external double getLayerId(List<Layer> layer);
+  external double getLayerId(List layer);
 }

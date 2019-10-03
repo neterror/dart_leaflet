@@ -9,7 +9,7 @@ class Point {
   external Point(double x, double y, [bool round]);
 
   /// Expects an array of the form [x, y] instead.
-  external Point.fromCoords(List<double> coords);
+  external Point.fromCoords(List coords);
 
   /// Returns a copy of the current point.
   external Point clone();
