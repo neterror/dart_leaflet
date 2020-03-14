@@ -12,7 +12,7 @@ import 'evented.dart';
 import 'geojson.dart';
 import 'point.dart';
 
-@JS("L.layer")
+@JS('L.layer')
 class Layer {
   /// Adds the layer to the given map or layer group.
   external Layer addTo(LeafletMap map);
@@ -43,7 +43,7 @@ class Layer {
 
   /// Binds a popup to the layer with the passed content and sets up the necessary event listeners.
   /// If a Function is passed it will receive the layer as the first argument and should return a String or HTMLElement
-  external bindPopup(Popup content);
+  external Layer bindPopup(Popup content);
 
   /// Removes the popup previously bound with bindPopup.
   external Layer unbindPopup();
@@ -95,6 +95,11 @@ class Layer {
 @JS()
 @anonymous
 class LayerOptions {
+  external factory LayerOptions({
+    String pane,
+    String attribution,
+  });
+
   /// By default the layer will be added to the map's overlay pane.
   /// Overriding this option will cause the layer to be placed on another pane by default.
   external String get pane;
@@ -106,7 +111,7 @@ class LayerOptions {
   external set attribution(String value);
 }
 
-@JS("L.gridLayer")
+@JS('L.gridLayer')
 class GridLayer extends Layer {
   /// Creates a new instance of GridLayer with the supplied options
   external GridLayer([GridLayerOptions options]);
@@ -139,6 +144,13 @@ class GridLayer extends Layer {
 @JS()
 @anonymous
 class InteractiveLayerOptions extends LayerOptions {
+  external factory InteractiveLayerOptions({
+    String pane,
+    String attribution,
+    bool interactive,
+    bool bubblingMouseEvents,
+  });
+
   /// If false, the layer will not emit mouse events and will act as a part of the underlying map.
   external bool get interactive;
   external set interactive(bool value);
@@ -151,6 +163,25 @@ class InteractiveLayerOptions extends LayerOptions {
 @JS()
 @anonymous
 class GridLayerOptions extends LayerOptions {
+  external factory GridLayerOptions({
+    String pane,
+    String attribution,
+    Point tileSize,
+    double opacity,
+    bool updateWhenIdle,
+    bool updateWhenZooming,
+    double updateInterval,
+    double zIndex,
+    LatLngBounds bounds,
+    double minZoom,
+    double maxZoom,
+    double maxNativeZoom,
+    double minNativeZoom,
+    bool noWrap,
+    String className,
+    double keepBuffer,
+  });
+
   /// Width and height of tiles in the grid. Use a number if width and height are equal, or L.point(width, height) otherwise.
   external Point get tileSize;
   external set tileSize(Point value);
@@ -219,7 +250,7 @@ class GridLayerOptions extends LayerOptions {
   external set keepBuffer(double value);
 }
 
-@JS("L.tileLayer")
+@JS('L.tileLayer')
 class TileLayer extends GridLayer with Evented {
   /// Instantiates a tile layer object given a URL template and optionally an options object.
   external TileLayer(String urlTemplate, [TileLayerOptions options]);
@@ -232,14 +263,31 @@ class TileLayer extends GridLayer with Evented {
 @JS()
 @anonymous
 class TileLayerOptions extends GridLayerOptions {
-  external factory TileLayerOptions(
-      {String subdomains,
-      String errorTileUrl,
-      double zoomOffset,
-      bool tms,
-      bool zoomReverse,
-      bool detectRetina,
-      String crossOrigin});
+  external factory TileLayerOptions({
+    String attribution,
+    Point tileSize,
+    double opacity,
+    bool updateWhenIdle,
+    bool updateWhenZooming,
+    double updateInterval,
+    double zIndex,
+    LatLngBounds bounds,
+    double minZoom,
+    double maxZoom,
+    double maxNativeZoom,
+    double minNativeZoom,
+    bool noWrap,
+    String pane,
+    String className,
+    double keepBuffer,
+    String subdomains,
+    String errorTileUrl,
+    double zoomOffset,
+    bool tms,
+    bool zoomReverse,
+    bool detectRetina,
+    String crossOrigin,
+  });
 
   /// Subdomains of the tile service. Can be passed in the form of one string (where each letter is a subdomain
   /// name) or an array of strings.
@@ -280,6 +328,13 @@ class DivOverlay extends Layer {}
 @JS()
 @anonymous
 class DivOverlayOptions extends LayerOptions {
+  external factory DivOverlayOptions({
+    String attribution,
+    Point offset,
+    String className,
+    String pane,
+  });
+
   /// The offset of the popup position. Useful to control the anchor of the popup when opening it on some overlays.
   external Point get offset;
   external set offset(Point value);
@@ -288,12 +343,12 @@ class DivOverlayOptions extends LayerOptions {
   external String get className;
   external set className(String value);
 
-  ///Map pane where the popup will be added.
+  /// Map pane where the popup will be added.
   external String get pane;
   external set pane(String value);
 }
 
-@JS("L.layerGroup")
+@JS('L.layerGroup')
 class LayerGroup extends Layer with Evented {
   external LayerGroup([List layers, LayerOptions options]);
 
@@ -318,9 +373,12 @@ class LayerGroup extends Layer with Evented {
   external LayerGroup invoke(String methodName);
 
   /// Iterates over the layers of the group, optionally specifying context of the iterator function.
-  /// group.eachLayer(function (layer) {
+  ///
+  /// ```dart
+  /// group.eachLayer(allowInterop((layer) {
   ///   layer.bindPopup('Hello');
-  ///});
+  /// }));
+  /// ```
   external LayerGroup eachLayer(Function fn);
 
   /// Returns the layer with the given internal ID.
@@ -334,4 +392,10 @@ class LayerGroup extends Layer with Evented {
 
   /// Returns the internal ID for a layer
   external double getLayerId(List layer);
+}
+
+/// Extended [LayerGroup] that makes it easier to do the same thing to all its member layers
+@JS('L.featureGroup')
+class FeatureGroup extends LayerGroup {
+  external FeatureGroup(List layers);
 }

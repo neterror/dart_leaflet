@@ -4,7 +4,7 @@ library leaflet.latlng;
 import 'package:js/js.dart';
 import 'latlng_bounds.dart';
 
-@JS("L.latLng")
+@JS('L.latLng')
 class LatLng {
   /// Creates an object representing a geographical point with the given latitude and
   /// longitude (and optionally altitude).
@@ -44,6 +44,8 @@ class LatLng {
 @JS()
 @anonymous
 class LatCoordinate {
+  external factory LatCoordinate({double lat, double lng, double alt});
+
   external double get lat;
   external set lat(double value);
 
@@ -52,6 +54,4 @@ class LatCoordinate {
 
   external double get alt;
   external set alt(double value);
-
-  external factory LatCoordinate({double lat, double lng, double alt});
 }

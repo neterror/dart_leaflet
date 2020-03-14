@@ -18,16 +18,16 @@ class OpenStreetMap {
     TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', options)
         .addTo(_map);
 
-    // disable the default right click - use it as cancel last poitn
-    var map = querySelector("#$elementId");
+    // disable the default right click - use it as cancel last point
+    var map = querySelector('#$elementId');
     map.addEventListener('contextmenu', (Event e) {
       e.preventDefault();
       return false;
     });
 
-    _painters["marker"] = DrawFlowers(_map);
-    _painters["circle"] = DrawCircles(_map);
-    _painters["polygon"] = DrawPolygons(_map);
+    _painters['marker'] = DrawFlowers(_map);
+    _painters['circle'] = DrawCircles(_map);
+    _painters['polygon'] = DrawPolygons(_map);
   }
 
   void draw(String item, bool enabled) {
@@ -37,7 +37,7 @@ class OpenStreetMap {
     }
   }
 
-  String get geoJson => _painters["polygon"].geoJson;
+  String get geoJson => _painters['polygon'].geoJson;
 
   void setView({double lat, double lng, double zoom = 10}) =>
       _map.setView(LatLng(lat, lng), zoom);

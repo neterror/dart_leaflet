@@ -6,7 +6,7 @@ import 'layer.dart';
 import 'point.dart';
 import 'evented.dart';
 
-@JS("L.tooltip")
+@JS('L.tooltip')
 class Tooltip extends DivOverlay with Evented {
   /// Instantiates a Tooltip object given an optional options object that describes its appearance and location
   /// and an optional source object that is used to tag the tooltip with a reference to the Layer to which it refers.
@@ -16,14 +16,17 @@ class Tooltip extends DivOverlay with Evented {
 @JS()
 @anonymous
 class TooltipOptions extends DivOverlayOptions {
-  external factory TooltipOptions(
-      {String pane,
-      Point offset,
-      String direction,
-      bool permanent,
-      bool sticky,
-      bool interactive,
-      double opacity});
+  external factory TooltipOptions({
+    String attribution,
+    String className,
+    String pane,
+    Point offset,
+    String direction,
+    bool permanent,
+    bool sticky,
+    bool interactive,
+    double opacity,
+  });
 
   /// Map pane where the tooltip will be added.
   external String get pane;

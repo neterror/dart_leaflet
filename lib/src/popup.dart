@@ -9,7 +9,7 @@ import 'latlng.dart';
 import 'leaflet_map.dart';
 import 'evented.dart';
 
-@JS("L.popup")
+@JS('L.popup')
 class Popup extends DivOverlay with Evented {
   external Popup([PopupOptions options, Layer source]);
 
@@ -49,19 +49,23 @@ class Popup extends DivOverlay with Evented {
 @JS()
 @anonymous
 class PopupOptions extends DivOverlayOptions {
-  external factory PopupOptions(
-      {double maxWidth,
-      double minWidth,
-      double maxHeight,
-      double autoPan,
-      Point autoPanPaddingTopLeft,
-      Point autoPanPaddingBottomRight,
-      Point autoPanPadding,
-      bool closeButton,
-      bool autoClose,
-      bool closeOnEscapeKey,
-      bool closeOnClick,
-      String className});
+  external factory PopupOptions({
+    Point offset,
+    String pane,
+    String attribution,
+    double maxWidth,
+    double minWidth,
+    double maxHeight,
+    double autoPan,
+    Point autoPanPaddingTopLeft,
+    Point autoPanPaddingBottomRight,
+    Point autoPanPadding,
+    bool closeButton,
+    bool autoClose,
+    bool closeOnEscapeKey,
+    bool closeOnClick,
+    String className,
+  });
 
   /// Max width of the popup, in pixels.
   external double get maxWidth;

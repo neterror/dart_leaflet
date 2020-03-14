@@ -28,22 +28,26 @@ class Path extends Layer with Evented {
 
 @JS()
 @anonymous
-class PathOptions extends LayerOptions {
-  external factory PathOptions(
-      {bool stroke,
-      String color,
-      double weight,
-      double opacity,
-      String lineCap,
-      String lineJoin,
-      String dashArray,
-      String dashOffset,
-      bool fill,
-      String fillColor,
-      double fillOpacity,
-      String fillRule,
-      Renderer renderer,
-      String className});
+class PathOptions extends InteractiveLayerOptions {
+  external factory PathOptions({
+    String pane,
+    String attribution,
+    bool interactive,
+    bool stroke,
+    String color,
+    double weight,
+    double opacity,
+    String lineCap,
+    String lineJoin,
+    String dashArray,
+    String dashOffset,
+    bool fill,
+    String fillColor,
+    double fillOpacity,
+    String fillRule,
+    Renderer renderer,
+    String className,
+  });
 
   /// Whether to draw stroke along the path. Set it to false to   disable borders on polygons or circles.
   external bool get stroke;
@@ -106,7 +110,7 @@ class PathOptions extends LayerOptions {
   external set className(String value);
 }
 
-@JS("L.polyline")
+@JS('L.polyline')
 class Polyline extends Path {
   /// Instantiates a polyline object given an array of geographical points and optionally an options object.
   /// You can create a Polyline object with multiple separate lines (MultiPolyline) by passing an array of
@@ -144,7 +148,24 @@ class Polyline extends Path {
 @JS()
 @anonymous
 class PolylineOptions extends PathOptions {
-  external factory PolylineOptions();
+  external factory PolylineOptions({
+    bool stroke,
+    String color,
+    double weight,
+    double opacity,
+    String lineCap,
+    String lineJoin,
+    String dashArray,
+    String dashOffset,
+    bool fill,
+    String fillColor,
+    double fillOpacity,
+    String fillRule,
+    Renderer renderer,
+    String className,
+    double smoothFactor,
+    bool noClip,
+  });
 
   ///How much to simplify the polyline on each zoom level. More means better performance and smoother look,
   /// and less means more accurate representation.
@@ -156,17 +177,17 @@ class PolylineOptions extends PathOptions {
   external set noClip(bool value);
 }
 
-@JS("L.polygon")
+@JS('L.polygon')
 class Polygon extends Polyline {
   external factory Polygon(List latlngs, [PolylineOptions options]);
 }
 
-@JS("L.rectangle")
+@JS('L.rectangle')
 class Rectangle extends Polyline {
   external factory Rectangle(LatLngBounds latlngs, [PolylineOptions options]);
 }
 
-@JS("L.circleMarker")
+@JS('L.circleMarker')
 class CircleMarker extends Path {
   /// Instantiates a circle marker object given a geographical point, and an optional options object.
   external factory CircleMarker(LatLng latlng, [CircleOptions options]);
@@ -192,6 +213,23 @@ class CircleMarker extends Path {
 @anonymous
 class CircleOptions extends PathOptions {
   external factory CircleOptions({
+    String pane,
+    String attribution,
+    bool interactive,
+    bool stroke,
+    String color,
+    double weight,
+    double opacity,
+    String lineCap,
+    String lineJoin,
+    String dashArray,
+    String dashOffset,
+    bool fill,
+    String fillColor,
+    double fillOpacity,
+    String fillRule,
+    Renderer renderer,
+    String className,
     double radius,
   });
 
@@ -200,7 +238,7 @@ class CircleOptions extends PathOptions {
   external set radius(double value);
 }
 
-@JS("L.circle")
+@JS('L.circle')
 class Circle extends CircleMarker {
   external factory Circle(LatLng latlng, [CircleOptions options]);
 }

@@ -9,8 +9,8 @@ class DrawPolygons implements Draw {
   CircleMarker _firstMark;
 
   final _featureCollection = <String, dynamic>{
-    "type": "FeatureCollection",
-    "features": <Map>[]
+    'type': 'FeatureCollection',
+    'features': <Map>[]
   };
 
   Polyline _polyline = Polyline([]);
@@ -28,16 +28,16 @@ class DrawPolygons implements Draw {
 
   final _normalNode = CircleOptions()
     ..radius = 5
-    ..fillColor = "#ff7800"
-    ..color = "#000"
+    ..fillColor = '#ff7800'
+    ..color = '#000'
     ..weight = 1
     ..opacity = 1
     ..fillOpacity = 0.8;
 
   final _accentNode = CircleOptions()
     ..radius = 10
-    ..fillColor = "#aa7880"
-    ..color = "#000"
+    ..fillColor = '#aa7880'
+    ..color = '#000'
     ..weight = 2
     ..opacity = 1
     ..fillOpacity = 0.9;
@@ -54,7 +54,7 @@ class DrawPolygons implements Draw {
 
       _polyline.addTo(_map);
       _dashLine.addTo(_map);
-      _dashLine.setStyle(PolylineOptions()..dashArray = "4");
+      _dashLine.setStyle(PolylineOptions()..dashArray = '4');
     } else {
       _map.dragging.enable();
       _map.off(E.mousedown);
@@ -150,6 +150,6 @@ class DrawPolygons implements Draw {
         'coordinates': geojson.geometry.coordinates
       }
     };
-    _featureCollection["features"].add(json);
+    _featureCollection['features'].add(json);
   }
 }

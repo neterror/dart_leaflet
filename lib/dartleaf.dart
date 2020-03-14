@@ -5,6 +5,7 @@ export 'src/latlng_bounds.dart';
 export 'src/latlng.dart';
 export 'src/renderer.dart';
 export 'src/crs.dart';
+export 'src/control.dart';
 export 'src/marker.dart';
 export 'src/path.dart';
 export 'src/popup.dart';

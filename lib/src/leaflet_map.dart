@@ -18,7 +18,7 @@ import 'tooltip.dart';
 import 'evented.dart';
 import 'handler.dart';
 
-@JS("L.map")
+@JS('L.map')
 class LeafletMap with Evented {
   /// Instantiates a map object given the DOM ID of a <div> element and optionally an object literal with LeafletMap options
   external LeafletMap(String id, [MapOptions options]);
@@ -91,10 +91,10 @@ class LeafletMap with Evented {
 // external LeafletMap setZoomAround(Point offset, double zoom, ZoomOptions);
 
   /// Sets a map view that contains the given geographical bounds with the maximum zoom level possible.
-  external LeafletMap fitBounds(LatLngBounds bounds, [FitBounds options]);
+  external LeafletMap fitBounds(LatLngBounds bounds, [FitBoundOptions options]);
 
   /// Sets a map view that mostly contains the whole world with the maximum zoom level possible.
-  external LeafletMap fitWorld([FitBounds options]);
+  external LeafletMap fitWorld([FitBoundOptions options]);
 
   /// Pans the map to a given center.
   external LeafletMap panTo(LatLng latlng, [PanOptions options]);
@@ -303,45 +303,46 @@ class LeafletMap with Evented {
 @JS()
 @anonymous
 class MapOptions {
-  external factory MapOptions(
-      {bool preferCanvas,
-      bool attributionControl,
-      bool zoomControl,
-      bool closePopupOnClick,
-      double zoomSnap,
-      double zoomDelta,
-      bool trackResize,
-      bool boxZoom,
-      bool doubleClickZoom,
-      bool dragging,
-      CRS crs,
-      LatLng center,
-      double zoom,
-      double minZoom,
-      double maxZoom,
-      List<Layer> layers,
-      LatLngBounds maxBounds,
-      Renderer renderer,
-      bool zoomAnimation,
-      double zoomAnimationThreshold,
-      bool fadeAnimation,
-      bool markerZoomAnimation,
-      double transform3DLimit,
-      bool inertia,
-      double inertiaDeceleration,
-      double inertiaMaxSpeed,
-      double easeLinearity,
-      bool worldCopyJump,
-      double maxBoundsViscosity,
-      bool keyboard,
-      bool keyboardPanDelta,
-      bool scrollWheelZoom,
-      double wheelDebounceTime,
-      double wheelPxPerZoomLevel,
-      bool tap,
-      double tapTolerance,
-      bool touchZoom,
-      bool bounceAtZoomLimits});
+  external factory MapOptions({
+    bool preferCanvas,
+    bool attributionControl,
+    bool zoomControl,
+    bool closePopupOnClick,
+    double zoomSnap,
+    double zoomDelta,
+    bool trackResize,
+    bool boxZoom,
+    bool doubleClickZoom,
+    bool dragging,
+    CRS crs,
+    LatLng center,
+    double zoom,
+    double minZoom,
+    double maxZoom,
+    List layers,
+    LatLngBounds maxBounds,
+    Renderer renderer,
+    bool zoomAnimation,
+    double zoomAnimationThreshold,
+    bool fadeAnimation,
+    bool markerZoomAnimation,
+    double transform3DLimit,
+    bool inertia,
+    double inertiaDeceleration,
+    double inertiaMaxSpeed,
+    double easeLinearity,
+    bool worldCopyJump,
+    double maxBoundsViscosity,
+    bool keyboard,
+    bool keyboardPanDelta,
+    bool scrollWheelZoom,
+    double wheelDebounceTime,
+    double wheelPxPerZoomLevel,
+    bool tap,
+    double tapTolerance,
+    bool touchZoom,
+    bool bounceAtZoomLimits,
+  });
 
   /// Whether Paths should be rendered on a Canvas renderer. By default, all Paths are rendered in a SVG renderer.
   external bool get preferCanvas;

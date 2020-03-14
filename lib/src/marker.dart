@@ -9,7 +9,7 @@ import 'latlng.dart';
 import 'evented.dart';
 import 'geojson.dart';
 
-@JS("L.marker")
+@JS('L.marker')
 class Marker extends Layer with Evented {
   external Marker(LatLng latlng, [MarkerOptions options]);
 
@@ -39,21 +39,24 @@ class Marker extends Layer with Evented {
 @JS()
 @anonymous
 class MarkerOptions extends InteractiveLayerOptions {
-  external factory MarkerOptions(
-      {Icon icon,
-      bool keyboard,
-      String title,
-      String alt,
-      double zIndexOffset,
-      double opacity,
-      bool riseOnHover,
-      double riseOffset,
-      String pane,
-      bool bubblingMouseEvents,
-      bool draggable,
-      bool autoPan,
-      Point autoPanPadding,
-      double autoPanSpeed});
+  external factory MarkerOptions({
+    String attribution,
+    bool interactive,
+    Icon icon,
+    bool keyboard,
+    String title,
+    String alt,
+    double zIndexOffset,
+    double opacity,
+    bool riseOnHover,
+    double riseOffset,
+    String pane,
+    bool bubblingMouseEvents,
+    bool draggable,
+    bool autoPan,
+    Point autoPanPadding,
+    double autoPanSpeed,
+  });
 
   /// Icon instance to use for rendering the marker. See Icon documentation
   /// for details on how to customize the marker icon. If not specified, a
