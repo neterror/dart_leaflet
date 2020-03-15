@@ -11,7 +11,7 @@ class DrawCircles implements Draw {
   DrawCircles(this._map);
 
   @override
-  String get geoJson => "Not implemented";
+  String get geoJson => 'Not implemented';
 
   @override
   set active(bool draw) {
@@ -42,19 +42,19 @@ class DrawCircles implements Draw {
     _circleMarker = m.CircleMarker(_centerCoord, options);
 
     _circleMarker.bindTooltip(
-        "My Label",
+        'My Label',
         TooltipOptions()
           ..opacity = 0.8
           ..direction = 'center'
           ..permanent = true
           ..interactive = true
-          ..className = "my-label");
+          ..className = 'my-label');
 
     _circleMarker.addTo(_map);
   }
 
   void _drawCircleEnd(m.LeafletMouseEvent e) {
-    print("draw circle end");
+    print('draw circle end');
     _centerCoord = null;
     _centerPoint = null;
     _circleMarker = null;
@@ -62,7 +62,7 @@ class DrawCircles implements Draw {
 
   void _drawCircle(m.LeafletMouseEvent e) {
     if (_centerPoint == null) return;
-    print("drawing circle");
+    print('drawing circle');
     var p = e.layerPoint;
     _circleMarker.setRadius(p.distanceTo(_centerPoint));
   }
