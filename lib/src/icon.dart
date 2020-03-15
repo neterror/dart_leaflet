@@ -5,33 +5,34 @@ import 'dart:html';
 import 'package:js/js.dart';
 import 'point.dart';
 
-@JS("L.icon")
+@JS('L.icon')
 class Icon {
-  external Icon(IconOptions options);
+  external factory Icon(IconOptions options);
 
   /// Called internally when the icon has to be shown.
   /// returns a <img> HTML element styled according to the options
   external Element createIcon([Element oldIcon]);
 
-  ///As createIcon, but for the shadow beneath it.
+  /// As createIcon, but for the shadow beneath it.
   external Element createShadow([Element oldIcon]);
 }
 
 @JS()
 @anonymous
 class IconOptions {
-  external factory IconOptions(
-      {String iconUrl,
-      String iconRetinaUrl,
-      Point iconSize,
-      Point iconAnchor,
-      Point popupAnchor,
-      Point tooltipAnchor,
-      String shadowUrl,
-      String shadowRetinaUrl,
-      Point shadowSize,
-      Point shadowAnchor,
-      String className});
+  external factory IconOptions({
+    String iconUrl,
+    String iconRetinaUrl,
+    Point iconSize,
+    Point iconAnchor,
+    Point popupAnchor,
+    Point tooltipAnchor,
+    String shadowUrl,
+    String shadowRetinaUrl,
+    Point shadowSize,
+    Point shadowAnchor,
+    String className,
+  });
 
   /// (required) The URL to the icon image (absolute or relative to your script path).
   external String get iconUrl;
@@ -45,8 +46,8 @@ class IconOptions {
   external Point get iconSize;
   external set iconSize(Point value);
 
-  /// The coordinates of the "tip" of the icon (relative to its top left
-  /// corner). The icon will be aligned so that this point is at the
+  /// The coordinates of the "tip" of the icon (relative to its top left corner).
+  /// The icon will be aligned so that this point is at the
   /// marker's geographical location. Centered by default if size is
   /// specified, also can be set in CSS with negative margins.
   external Point get iconAnchor;
@@ -78,4 +79,31 @@ class IconOptions {
   /// A custom class name to assign to both icon and shadow images. Empty by default.
   external String get className;
   external set className(String value);
+}
+
+@JS('L.divIcon')
+class DivIcon extends Icon {
+  external factory DivIcon(DivIconOptions options);
+}
+
+@JS()
+@anonymous
+class DivIconOptions extends Icon {
+  external factory DivIconOptions({
+    String html,
+    Point bgPos,
+    Point iconSize,
+    Point iconAnchor,
+    Point popupAnchor,
+    Point tooltipAnchor,
+    String className,
+  });
+
+  /// Custom HTML code to put inside the div element, empty by default.
+  external String get html;
+  external set html(String value);
+
+  /// Optional relative position of the background, in pixels.
+  external Point get bgPos;
+  external set bgPos(Point value);
 }

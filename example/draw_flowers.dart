@@ -16,8 +16,7 @@ class DrawFlowers implements Draw {
   }
 
   @override
-  String get geoJson => "Not implemented";
-
+  String get geoJson => 'Not implemented';
 
   void _putLeaf(LeafletMouseEvent e) {
     var options = IconOptions(
@@ -28,13 +27,13 @@ class DrawFlowers implements Draw {
         // point of the icon which will correspond to marker's location
         iconAnchor: Point(22, 94),
         shadowAnchor: Point(4, 62), // the same for the shadow
-// point from which the popup should open relative to the iconAnchor
+        // point from which the popup should open relative to the iconAnchor
         popupAnchor: Point(-3, -76));
 
     var pop = Popup()..setContent('<p>Hello</p>');
     Marker(e.latlng, MarkerOptions(icon: Icon(options)))
       ..bindPopup(pop)
-      ..bindTooltip("Click to learn more")
+      ..bindTooltip('Click to learn more')
       ..addTo(_map);
   }
 }

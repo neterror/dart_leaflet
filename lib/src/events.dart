@@ -12,119 +12,119 @@ import 'popup.dart';
 import 'latlng_bounds.dart';
 
 class E {
-  /// 	LayersControlEvent 	Fired when the base layer is changed through the layer control.
-  static const baselayerchange = "baselayerchange";
+  /// LayersControlEvent  Fired when the base layer is changed through the layer control.
+  static const baselayerchange = 'baselayerchange';
 
-  /// 	LayersControlEvent 	Fired when an overlay is selected through the layer control.
-  static const overlayadd = "overlayadd";
+  /// LayersControlEvent  Fired when an overlay is selected through the layer control.
+  static const overlayadd = 'overlayadd';
 
-  /// 	LayersControlEvent 	Fired when an overlay is deselected through the layer control.
-  static const overlayremove = "overlayremove";
+  /// LayersControlEvent  Fired when an overlay is deselected through the layer control.
+  static const overlayremove = 'overlayremove';
 
-  /// 	LayerEvent 	Fired when a new layer is added to the map.
-  static const layeradd = "layeradd";
+  /// LayerEvent  Fired when a new layer is added to the map.
+  static const layeradd = 'layeradd';
 
-  /// 	LayerEvent 	Fired when some layer is removed from the map
-  static const layerremove = "layerremove";
+  /// LayerEvent  Fired when some layer is removed from the map
+  static const layerremove = 'layerremove';
 
   /// Map state change events
-  /// 	Event 	Fired when the number of zoomlevels on the map is changed due to adding or removing a layer.
-  static const zoomlevelschange = "zoomlevelschange";
+  /// Event   Fired when the number of zoomlevels on the map is changed due to adding or removing a layer.
+  static const zoomlevelschange = 'zoomlevelschange';
 
-  /// 	ResizeEvent 	Fired when the map is resized.
-  static const resize = "resize";
+  /// ResizeEvent   Fired when the map is resized.
+  static const resize = 'resize';
 
-  /// 	Event 	Fired when the map is destroyed with remove method.
-  static const unload = "unload";
+  /// Event   Fired when the map is destroyed with remove method.
+  static const unload = 'unload';
 
-  /// 	Event 	Fired when the map needs to redraw its content (this usually happens on map zoom or load). Very useful for creating custom overlays.
-  static const viewreset = "viewreset";
+  /// Event   Fired when the map needs to redraw its content (this usually happens on map zoom or load). Very useful for creating custom overlays.
+  static const viewreset = 'viewreset';
 
-  /// 	Event 	Fired when the map is initialized (when its center and zoom are set for the first time).
-  static const load = "load";
+  /// Event   Fired when the map is initialized (when its center and zoom are set for the first time).
+  static const load = 'load';
 
-  /// 	Event 	Fired when the map zoom is about to change (e.g. before zoom animation).
-  static const zoomstart = "zoomstart";
+  /// Event   Fired when the map zoom is about to change (e.g. before zoom animation).
+  static const zoomstart = 'zoomstart';
 
-  /// 	Event 	Fired when the view of the map starts changing (e.g. user starts dragging the map).
-  static const movestart = "movestart";
+  /// Event   Fired when the view of the map starts changing (e.g. user starts dragging the map).
+  static const movestart = 'movestart';
 
-  /// 	Event 	Fired repeatedly during any change in zoom level, including zoom and fly animations.
-  static const zoom = "zoom";
+  /// Event   Fired repeatedly during any change in zoom level, including zoom and fly animations.
+  static const zoom = 'zoom';
 
-  /// 	Event 	Fired repeatedly during any movement of the map, including pan and fly animations.
-  static const move = "move";
+  /// Event   Fired repeatedly during any movement of the map, including pan and fly animations.
+  static const move = 'move';
 
-  /// 	Event 	Fired when the map has changed, after any animations.
-  static const zoomend = "zoomend";
+  /// Event   Fired when the map has changed, after any animations.
+  static const zoomend = 'zoomend';
 
-  /// 	Event 	Fired when the center of the map stops changing (e.g. user stopped dragging the map).
-  static const moveend = "moveend";
+  /// Event   Fired when the center of the map stops changing (e.g. user stopped dragging the map).
+  static const moveend = 'moveend';
 
   /// Popup events
-  /// 	PopupEvent 	Fired when a popup is opened in the map
-  static const popupopen = "popupopen";
+  /// PopupEvent  Fired when a popup is opened in the map
+  static const popupopen = 'popupopen';
 
-  /// 	PopupEvent 	Fired when a popup in the map is closed
-  static const popupclose = "popupclose";
+  /// PopupEvent  Fired when a popup in the map is closed
+  static const popupclose = 'popupclose';
 
-  /// 	Event 	Fired when the map starts autopanning when opening a popup.
-  static const autopanstart = "autopanstart";
+  /// Event   Fired when the map starts autopanning when opening a popup.
+  static const autopanstart = 'autopanstart';
 
   /// Tooltip events
-  /// 	TooltipEvent 	Fired when a tooltip is opened in the map.
-  static const tooltipopen = "tooltipopen";
+  /// TooltipEvent  Fired when a tooltip is opened in the map.
+  static const tooltipopen = 'tooltipopen';
 
-  /// 	TooltipEvent 	Fired when a tooltip in the map is closed.
-  static const tooltipclose = "tooltipclose";
+  /// TooltipEvent  Fired when a tooltip in the map is closed.
+  static const tooltipclose = 'tooltipclose';
 
   /// Location events
-  /// 	ErrorEvent 	Fired when geolocation (using the locate method) failed.
-  static const locationerror = "locationerror";
+  /// ErrorEvent  Fired when geolocation (using the locate method) failed.
+  static const locationerror = 'locationerror';
 
-  /// 	LocationEvent 	Fired when geolocation (using the locate method) went successfully.
-  static const locationfound = "locationfound";
+  /// LocationEvent   Fired when geolocation (using the locate method) went successfully.
+  static const locationfound = 'locationfound';
 
   /// Interaction events
-  /// 	MouseEvent 	Fired when the user clicks (or taps) the map.
-  static const click = "click";
+  /// MouseEvent  Fired when the user clicks (or taps) the map.
+  static const click = 'click';
 
-  /// 	MouseEvent 	Fired when the user double-clicks (or double-taps) the map.
-  static const dblclick = "dblclick";
+  /// MouseEvent  Fired when the user double-clicks (or double-taps) the map.
+  static const dblclick = 'dblclick';
 
-  /// 	MouseEvent 	Fired when the user pushes the mouse button on the map.
-  static const mousedown = "mousedown";
+  /// MouseEvent  Fired when the user pushes the mouse button on the map.
+  static const mousedown = 'mousedown';
 
-  /// 	MouseEvent 	Fired when the user releases the mouse button on the map.
-  static const mouseup = "mouseup";
+  /// MouseEvent  Fired when the user releases the mouse button on the map.
+  static const mouseup = 'mouseup';
 
-  /// 	MouseEvent 	Fired when the mouse enters the map.
-  static const mouseover = "mouseover";
+  /// MouseEvent  Fired when the mouse enters the map.
+  static const mouseover = 'mouseover';
 
-  /// 	MouseEvent 	Fired when the mouse leaves the map.
-  static const mouseout = "mouseout";
+  /// MouseEvent  Fired when the mouse leaves the map.
+  static const mouseout = 'mouseout';
 
-  /// 	MouseEvent 	Fired while the mouse moves over the map.
-  static const mousemove = "mousemove";
+  /// MouseEvent  Fired while the mouse moves over the map.
+  static const mousemove = 'mousemove';
 
-  /// 	MouseEvent 	Fired when the user pushes the right mouse button on the map, prevents default browser context menu from showing if there are listeners on this event. Also fired on mobile when the user holds a single touch for a second (also called long press).
-  static const contextmenu = "contextmenu";
+  /// MouseEvent  Fired when the user pushes the right mouse button on the map, prevents default browser context menu from showing if there are listeners on this event. Also fired on mobile when the user holds a single touch for a second (also called long press).
+  static const contextmenu = 'contextmenu';
 
-  /// 	KeyboardEvent 	Fired when the user presses a key from the keyboard that produces a character value while the map is focused.
-  static const keypress = "keypress";
+  /// KeyboardEvent   Fired when the user presses a key from the keyboard that produces a character value while the map is focused.
+  static const keypress = 'keypress';
 
-  /// 	KeyboardEvent 	Fired when the user presses a key from the keyboard while the map is focused. Unlike the keypress event, the keydown event is fired for keys that produce a character value and for keys that do not produce a character value.
-  static const keydown = "keydown";
+  /// KeyboardEvent   Fired when the user presses a key from the keyboard while the map is focused. Unlike the keypress event, the keydown event is fired for keys that produce a character value and for keys that do not produce a character value.
+  static const keydown = 'keydown';
 
-  /// 	KeyboardEvent 	Fired when the user releases a key from the keyboard while the map is focused.
-  static const keyup = "keyup";
+  /// KeyboardEvent   Fired when the user releases a key from the keyboard while the map is focused.
+  static const keyup = 'keyup';
 
-  /// 	MouseEvent 	Fired before mouse click on the map (sometimes useful when you want something to happen on click before any existing click handlers start running).
-  static const preclick = "preclick";
+  /// MouseEvent  Fired before mouse click on the map (sometimes useful when you want something to happen on click before any existing click handlers start running).
+  static const preclick = 'preclick';
 
   ///Other Methods
-  /// 	ZoomAnimEvent 	Fired at least once per zoom animation. For continuous zoom, like pinch zooming, fired once per frame during zoom.
-  static const zoomanim = "zoomanim";
+  /// ZoomAnimEvent   Fired at least once per zoom animation. For continuous zoom, like pinch zooming, fired once per frame during zoom.
+  static const zoomanim = 'zoomanim';
 }
 
 /// Event
@@ -132,13 +132,13 @@ class E {
 @JS()
 @anonymous
 class LeafletEvent {
-  ///  The event type (e.g. 'click').
+  /// The event type (e.g. 'click').
   external String get type;
 
   /// The object that fired the event. For propagated events, the last object in the propagation chain that fired the event.
   external JsObject get target;
 
-  ///  The object that originally fired the event. For non-propagated events, this will be the same as the  target.
+  /// The object that originally fired the event. For non-propagated events, this will be the same as the  target.
   external JsObject get sourceTarget;
 
   /// For propagated events, the last object that propagated the event to its event parent.
@@ -193,7 +193,7 @@ class LeafletLocationEvent extends LeafletEvent {
   /// Current velocity in meters per second
   external double get speed;
 
-  ///   The time when the position was acquired.
+  ///  The time when the position was acquired.
   external double get timestamp;
 }
 
@@ -217,7 +217,7 @@ class LeafletLayerEvent extends LeafletEvent {
 @JS()
 @anonymous
 class LeafletLayersControlEvent extends LeafletEvent {
-  ///  The layer that was added or removed.
+  /// The layer that was added or removed.
   external Layer get layer;
 
   /// The name of the layer that was added or removed.
@@ -227,7 +227,7 @@ class LeafletLayersControlEvent extends LeafletEvent {
 @JS()
 @anonymous
 class LeafletTileEvent extends LeafletEvent {
-  ///  The tile element (image). coords Point Point object with the tile's x, y, and z (zoom level) coordinates.
+  /// The tile element (image). coords Point Point object with the tile's x, y, and z (zoom level) coordinates.
   external Element get tile;
 }
 
@@ -250,7 +250,7 @@ class LeafletResizeEvent extends LeafletEvent {
   /// The old size before resize event.
   external Point get oldSize;
 
-  ///  The new size after the resize event.
+  /// The new size after the resize event.
   external Point get newSize;
 }
 
@@ -264,26 +264,36 @@ class LeafletPopupEvent extends LeafletEvent {
 @JS()
 @anonymous
 class LeafletTooltipEvent extends LeafletEvent {
-  ///  The tooltip that was opened or closed.
+  /// The tooltip that was opened or closed.
   external Tooltip get tooltip;
 }
 
 @JS()
 @anonymous
 class LeafletDragEndEvent {
-  ///  The distance in pixels the draggable element was moved by.
+  /// The distance in pixels the draggable element was moved by.
   external double get distance;
 }
 
 @JS()
 @anonymous
 class LeafletZoomAnimEvent {
-  /// The current center of the map
+  /// The current center of the map.
   external LatLng get center;
 
-  ///  The current zoom level of the map
+  /// The current zoom level of the map.
   external double get zoom;
 
-  /// Whether layers should update their contents due to this event
+  /// Whether layers should update their contents due to this event.
   external bool get noUpdate;
+}
+
+@JS()
+@anonymous
+class LeafletMoveEvent extends LeafletEvent {
+  /// The old coordinates of the marker.
+  external LatLng get oldLatLng;
+
+  /// The new coordinates of the marker.
+  external LatLng get latlng;
 }
