@@ -3,7 +3,7 @@ library leaflet.control;
 
 import 'dart:html';
 import 'package:js/js.dart';
-import '../dartleaf.dart';
+import 'layer.dart';
 import 'leaflet_map.dart';
 
 @JS('L.control')
@@ -106,6 +106,10 @@ class ScaleControlOptions extends ControlOptions {
   external factory ScaleControlOptions({
     String position,
     String prefix,
+    num maxWidth,
+    bool metric,
+    bool imperial,
+    bool updateWhenIdle,
   });
 
   /// Number  100 Maximum width of the control in pixels.
