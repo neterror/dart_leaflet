@@ -17,6 +17,7 @@ import 'locate_options.dart';
 import 'tooltip.dart';
 import 'evented.dart';
 import 'handler.dart';
+import 'point.dart';
 
 @JS('L.map')
 class LeafletMap with Evented {

@@ -39,4 +39,11 @@ mixin PanOptions {
 
 @JS()
 @anonymous
-class ZoomPanOptions with ZoomOptions, PanOptions {}
+class ZoomPanOptions with ZoomOptions, PanOptions {
+  external factory ZoomPanOptions({
+    bool animate,
+    double duration,
+    double easeLinearity,
+    bool noMoveStart,
+  });
+}

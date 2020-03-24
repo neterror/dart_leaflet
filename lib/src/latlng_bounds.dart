@@ -16,8 +16,8 @@ class LatLngBounds {
   /// the map to fit a particular set of locations with fitBounds.
   external LatLngBounds.fromArray(List latlngs);
 
-  /// Extend the bounds to contain the given point
-  external LatLngBounds extend(LatLng latlng);
+  /// Extend the bounds to contain the given point or bounds.
+  external LatLngBounds extend(dynamic latlngOrBounds);
 
   /// Returns bounds created by extending or retracting the current bounds by a given ratio in each direction.
   /// For example, a ratio of 0.5 extends the bounds by 50% in each direction.
