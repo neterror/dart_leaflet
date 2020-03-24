@@ -1,6 +1,6 @@
 name: dartleaf
 description: Dart API for leafletjs 1.6.0, using package:js. Mobile friendly interactive map for web applications, that can use various backends. 
-version: 0.1.3
+version: 0.1.4
 author: Plamen Todorov <androplam@gmail.com>
 repository: https://github.com/neterror/dart_leaflet.git
 homepage: https://github.com/neterror/dart_leaflet
