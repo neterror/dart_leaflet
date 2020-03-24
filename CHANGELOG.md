@@ -1,5 +1,8 @@
-# 0.1.3
+# 0.1.4
 * added interops for L.LineUtil and L.PolyUtil and some other minor improvements
+
+# 0.1.3
+* Added div icon, controls, layer options, leaflet 1.6.0 support and some dart2js minor fixes
 
 # 0.1.2
 * Removed type specification on List parameters - use List<dynamic>  to avoid runtime errors 
