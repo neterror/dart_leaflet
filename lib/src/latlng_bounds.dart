@@ -51,8 +51,8 @@ class LatLngBounds {
   /// Returns the east longitude of the bounds
   external double getNorth();
 
-  /// Returns true if the rectangle contains the given point.
-  external bool contains(LatLng latlng);
+  /// Returns true if the rectangle contains the given point or another bounds.
+  external bool contains(dynamic /* LatLng|LatLngBounds */ latlngOrBounds);
 
   /// Returns true if the rectangle intersects the given bounds. Two bounds intersect if they have at least one point in common.
   external bool intersects(LatLngBounds otherBounds);
