@@ -1,6 +1,7 @@
 export 'src/bounds.dart';
 export 'src/control.dart';
 export 'src/crs.dart';
+export 'src/dom.dart';
 export 'src/evented.dart';
 export 'src/events.dart';
 export 'src/geojson.dart';
