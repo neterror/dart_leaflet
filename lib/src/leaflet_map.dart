@@ -20,13 +20,13 @@ import 'handler.dart';
 import 'point.dart';
 
 @JS('L.map')
-class LeafletMap with Evented {
+class LeafletMap extends Evented{
   /// Instantiates a map object given the DOM ID of a <div> element and optionally an object literal with LeafletMap options
-  external LeafletMap(String id, [MapOptions options]);
+  external LeafletMap(String id, [MapOptions? options]);
 
   /// Instantiates a map object given an instance of a <div> HTML element and optionally an object literal
   /// with LeafletMap options.
-  external LeafletMap.fromElement(Element e, [MapOptions options]);
+  external LeafletMap.fromElement(Element e, [MapOptions? options]);
 
   /// Methods
   /// Returns the instance of Renderer that should be used to render the given Path. It will ensure that the renderer
@@ -59,7 +59,7 @@ class LeafletMap with Evented {
 // external LeafletMap openPopup(String content, LatLng latlng, [PopupOptions options]);
 
   /// Closes the popup previously opened with openPopup (or the given one).
-  external LeafletMap closePopup([Popup popup]);
+  external LeafletMap closePopup([Popup? popup]);
 
   /// Opens the specified tooltip.
   external LeafletMap openTooltip(Tooltip tooltip);
@@ -68,20 +68,20 @@ class LeafletMap with Evented {
 // external LeafletMap openTooltip(String content, LatLng latlng, [Tooltip options] );
 
   /// Closes the tooltip given as parameter.
-  external LeafletMap closeTooltip([Tooltip tooltip]);
+  external LeafletMap closeTooltip([Tooltip? tooltip]);
 
   /// Sets the view of the map (geographical center and zoom) with the given animation options.
   external LeafletMap setView(LatLng center, double zoom,
-      [ZoomPanOptions options]);
+      [ZoomPanOptions? options]);
 
   /// Sets the zoom of the map.
-  external LeafletMap setZoom(double zoom, [ZoomOptions options]);
+  external LeafletMap setZoom(double zoom, [ZoomOptions? options]);
 
   /// Increases the zoom of the map by delta (zoomDelta by default())
-  external LeafletMap zoomIn([double delta, ZoomOptions options]);
+  external LeafletMap zoomIn([double? delta, ZoomOptions? options]);
 
   /// Decreases the zoom of the map by delta (zoomDelta by default).
-  external LeafletMap zoomOut([double delta, ZoomOptions options]);
+  external LeafletMap zoomOut([double? delta, ZoomOptions? options]);
 
   /// Zooms the map while keeping a specified geographical point on the map
   /// stationary (e.g. used internally for scroll zoom and double-click zoom).
@@ -92,27 +92,27 @@ class LeafletMap with Evented {
 // external LeafletMap setZoomAround(Point offset, double zoom, ZoomOptions);
 
   /// Sets a map view that contains the given geographical bounds with the maximum zoom level possible.
-  external LeafletMap fitBounds(LatLngBounds bounds, [FitBoundOptions options]);
+  external LeafletMap fitBounds(LatLngBounds bounds, [FitBoundOptions? options]);
 
   /// Sets a map view that mostly contains the whole world with the maximum zoom level possible.
-  external LeafletMap fitWorld([FitBoundOptions options]);
+  external LeafletMap fitWorld([FitBoundOptions? options]);
 
   /// Pans the map to a given center.
-  external LeafletMap panTo(LatLng latlng, [PanOptions options]);
+  external LeafletMap panTo(LatLng latlng, [PanOptions? options]);
 
   /// Pans the map by a given number of pixels (animated).
-  external LeafletMap panBy(Point offset, [PanOptions options]);
+  external LeafletMap panBy(Point offset, [PanOptions? options]);
 
   /// Sets the view of the map (geographical center and zoom) performing a smooth pan-zoom animation.
   external LeafletMap flyTo(LatLng latlng,
-      [double zoom, ZoomPanOptions options]);
+      [double? zoom, ZoomPanOptions? options]);
 
   /// Sets the view of the map with a smooth animation like flyTo, but takes a bounds parameter like fitBounds.
   external LeafletMap flyToBounds(LatLngBounds bounds,
-      [FitBoundOptions options]);
+      [FitBoundOptions? options]);
 
   ///  Restricts the map view to the given bounds (see the maxBounds option).
-  external LeafletMap setMaxBounds([Bounds bounds]);
+  external LeafletMap setMaxBounds([Bounds? bounds]);
 
   /// Sets the lower limit for the available zoom levels (see the minZoom  option).
   external LeafletMap setMinZoom(double zoom);
@@ -124,20 +124,20 @@ class LeafletMap with Evented {
   /// bounds (if it's not already), controlling the animation using the
   /// options specific, if any.
   external LeafletMap panInsideBounds(LatLngBounds bounds,
-      [PanOptions options]);
+      [PanOptions? options]);
 
   /// Pans the map the minimum amount to make the latlng visible. Use
   /// padding, paddingTopLeft and paddingTopRight options to fit the display
   /// to more restricted bounds, like fitBounds. If latlng is already within
   /// the (optionally padded) display bounds, the map will not be panned.
-  external LeafletMap panInside(LatLng latlng, [PanOptions options]);
+  external LeafletMap panInside(LatLng latlng, [PanOptions? options]);
 
   /// Checks if the map container size changed and updates the map if so —
   /// call it after you've changed the map size dynamically, also animating
   /// pan by default. If options.pan is false, panning will not occur. If
   /// options.debounceMoveend is true, it will delay moveend event so that
   /// it doesn't happen often even if the method is called many times in a row
-  external LeafletMap invalidateSize([ZoomPanOptions options]);
+  external LeafletMap invalidateSize([ZoomPanOptions? options]);
 
   /// Checks if the map container size changed and updates the map if so —
   /// call it after you've changed the map size dynamically, also animating
@@ -152,7 +152,7 @@ class LeafletMap with Evented {
   /// respect to detection accuracy (or to the world view if geolocation failed). Note that, if your page doesn't
   /// use HTTPS, this method will fail in modern browsers (Chrome 50 and newer) See Locate options for more
   /// details.
-  external LeafletMap locate([LocateOptions options]);
+  external LeafletMap locate([LocateOptions? options]);
 
   /// Stops watching location previously initiated by map.locate({watch: true}) and aborts resetting the map view
   /// if map.locate was called with {setView: true}.
@@ -166,7 +166,7 @@ class LeafletMap with Evented {
 
   /// Creates a new map pane with the given name if it doesn't exist already, then returns
   /// it. The pane is created as a child of container, or as a child of the main map pane if not set.
-  external Element createPane(String name, [Element container]);
+  external Element createPane(String name, [Element? container]);
 
   ///  Returns a map pane, given its name or its HTML element (its identity).
   external Element getPane(String pane);
@@ -196,7 +196,7 @@ class LeafletMap with Evented {
   /// Returns the maximum zoom level on which the given bounds fit to the map view in its entirety. If inside (optional) is set to true, the method
   /// instead returns the minimum zoom level on which the map view fits into the given bounds in its entirety.
   external double getBoundsZoom(LatLngBounds bounds,
-      [bool inside, Point padding]);
+      [bool? inside, Point? padding]);
 
   /// Returns the current size of the map container (in pixels).
   external Point getSize();
@@ -208,7 +208,7 @@ class LeafletMap with Evented {
   external Point getPixelOrigin();
 
   /// Returns the world's bounds in pixel coordinates for zoom level zoom. If zoom is omitted, the map's current zoom level is used.
-  external Bounds getPixelWorldBounds([double zoom]);
+  external Bounds getPixelWorldBounds([double? zoom]);
 
   /// Returns the scale factor to be applied to a map transition from zoom level fromZoom to toZoom. Used internally to help with zoom animations.
   external double getZoomScale(double toZoom, double fromZoom);
@@ -305,44 +305,44 @@ class LeafletMap with Evented {
 @anonymous
 class MapOptions {
   external factory MapOptions({
-    bool preferCanvas,
-    bool attributionControl,
-    bool zoomControl,
-    bool closePopupOnClick,
-    double zoomSnap,
-    double zoomDelta,
-    bool trackResize,
-    bool boxZoom,
-    bool doubleClickZoom,
-    bool dragging,
-    CRS crs,
-    LatLng center,
-    double zoom,
-    double minZoom,
-    double maxZoom,
-    List layers,
-    LatLngBounds maxBounds,
-    Renderer renderer,
-    bool zoomAnimation,
-    double zoomAnimationThreshold,
-    bool fadeAnimation,
-    bool markerZoomAnimation,
-    double transform3DLimit,
-    bool inertia,
-    double inertiaDeceleration,
-    double inertiaMaxSpeed,
-    double easeLinearity,
-    bool worldCopyJump,
-    double maxBoundsViscosity,
-    bool keyboard,
-    bool keyboardPanDelta,
-    bool scrollWheelZoom,
-    double wheelDebounceTime,
-    double wheelPxPerZoomLevel,
-    bool tap,
-    double tapTolerance,
-    bool touchZoom,
-    bool bounceAtZoomLimits,
+    bool? preferCanvas,
+    bool? attributionControl,
+    bool? zoomControl,
+    bool? closePopupOnClick,
+    double? zoomSnap,
+    double? zoomDelta,
+    bool? trackResize,
+    bool? boxZoom,
+    bool? doubleClickZoom,
+    bool? dragging,
+    CRS? crs,
+    LatLng? center,
+    double? zoom,
+    double? minZoom,
+    double? maxZoom,
+    List? layers,
+    LatLngBounds? maxBounds,
+    Renderer? renderer,
+    bool? zoomAnimation,
+    double? zoomAnimationThreshold,
+    bool? fadeAnimation,
+    bool? markerZoomAnimation,
+    double? transform3DLimit,
+    bool? inertia,
+    double? inertiaDeceleration,
+    double? inertiaMaxSpeed,
+    double? easeLinearity,
+    bool? worldCopyJump,
+    double? maxBoundsViscosity,
+    bool? keyboard,
+    bool? keyboardPanDelta,
+    bool? scrollWheelZoom,
+    double? wheelDebounceTime,
+    double? wheelPxPerZoomLevel,
+    bool? tap,
+    double? tapTolerance,
+    bool? touchZoom,
+    bool? bounceAtZoomLimits,
   });
 
   /// Whether Paths should be rendered on a Canvas renderer. By default, all Paths are rendered in a SVG renderer.

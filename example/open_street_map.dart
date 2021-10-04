@@ -19,7 +19,7 @@ class OpenStreetMap {
         .addTo(_map);
 
     // disable the default right click - use it as cancel last point
-    var map = querySelector('#$elementId');
+    var map = querySelector('#$elementId')!;
     map.addEventListener('contextmenu', (Event e) {
       e.preventDefault();
       return false;
@@ -30,15 +30,15 @@ class OpenStreetMap {
     _painters['polygon'] = DrawPolygons(_map);
   }
 
-  void draw(String item, bool enabled) {
+  void draw(String item, bool? enabled) {
     _painters.forEach((_, painter) => painter.active = false);
     if (_painters.containsKey(item)) {
-      _painters[item].active = enabled;
+      _painters[item]!.active = enabled;
     }
   }
 
-  String get geoJson => _painters['polygon'].geoJson;
+  String get geoJson => _painters['polygon']!.geoJson;
 
-  void setView({double lat, double lng, double zoom = 10}) =>
+  void setView({double? lat, double? lng, double zoom = 10}) =>
       _map.setView(LatLng(lat, lng), zoom);
 }

@@ -55,7 +55,7 @@ class DomEvent {
 
   /// Gets normalized mouse position from a DOM event relative to the container
   /// (border excluded) or to the whole page if not specified.
-  external static Point getMousePosition(Event e, [Element container]);
+  external static Point getMousePosition(Event e, [Element? container]);
 
   /// Gets normalized wheel delta from a mousewheel DOM event, in vertical pixels
   /// scrolled (negative if scrolling down). Events from pointing devices without
@@ -85,8 +85,8 @@ class DomUtil {
   /// and optionally appends it to [container] element.
   external static Element create(
     String tagName, [
-    String className,
-    Element container,
+    String? className,
+    Element? container,
   ]);
 
   /// Removes [el] from its parent element.
@@ -127,7 +127,7 @@ class DomUtil {
 
   /// Resets the 3D CSS transform of [el] so it is translated by [offset] pixels and optionally scaled by [scale].
   /// Does not have an effect if the browser doesn't support 3D CSS transforms.
-  external static void setTransform(Element el, Point offset, [num scale]);
+  external static void setTransform(Element el, Point offset, [num? scale]);
 
   /// Sets the position of [el] to coordinates specified by [position],
   /// using CSS translate or top/left positioning depending on the browser

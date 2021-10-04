@@ -30,8 +30,8 @@ class LineUtil {
     Point a,
     Point b,
     Bounds bounds, [
-    bool useLastCode,
-    bool round,
+    bool? useLastCode,
+    bool? round,
   ]);
 
   /// Returns `true` if [latlngs] is a flat array, `false` is nested.
@@ -46,5 +46,5 @@ class PolyUtil {
   /// Used by Leaflet to only show polygon points that are on the screen or near,
   /// increasing performance. Note that polygon points needs different algorithm
   /// for clipping than polyline, so there's a separate method for it.
-  external static List clipPolygon(List points, Bounds bounds, [bool round]);
+  external static List clipPolygon(List points, Bounds bounds, [bool? round]);
 }

@@ -8,7 +8,7 @@ import 'latlng_bounds.dart';
 class LatLng {
   /// Creates an object representing a geographical point with the given latitude and
   /// longitude (and optionally altitude).
-  external LatLng(double latitude, double longitude, [double altitude]);
+  external LatLng(double? latitude, double? longitude, [double? altitude]);
 
   /// Expects an array of the form [Number, Number] or [Number, Number, Number] instead
   external LatLng.fromList(List coordinates);
@@ -17,7 +17,7 @@ class LatLng {
   external LatLng.fromObject(LatCoordinate object);
 
   /// Returns true if the given LatLng point is at the same position (within a small margin of error). The margin of error can be overridden by setting maxMargin to a small number.
-  external bool equals(LatLng otherLatLng, [double maxMargin]);
+  external bool equals(LatLng otherLatLng, [double? maxMargin]);
 
   /// Returns a string representation of the point (for debugging purposes).
   external String toString();
@@ -44,7 +44,7 @@ class LatLng {
 @JS()
 @anonymous
 class LatCoordinate {
-  external factory LatCoordinate({double lat, double lng, double alt});
+  external factory LatCoordinate({double? lat, double? lng, double? alt});
 
   external double get lat;
   external set lat(double value);

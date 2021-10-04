@@ -66,7 +66,7 @@ class LatLngBounds {
 
   /// Returns true if the rectangle is equivalent (within a small margin of error) to the given bounds. The margin of
   /// error can be overridden by setting max Margin to a small number.
-  external bool equals(LatLngBounds otherBounds, [double maxMargin]);
+  external bool equals(LatLngBounds otherBounds, [double? maxMargin]);
 
   /// Returns true if the bounds are properly initialized.
   external bool isValid();

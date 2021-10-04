@@ -11,27 +11,27 @@ class Icon {
 
   /// Called internally when the icon has to be shown.
   /// returns a <img> HTML element styled according to the options
-  external Element createIcon([Element oldIcon]);
+  external Element createIcon([Element? oldIcon]);
 
   /// As createIcon, but for the shadow beneath it.
-  external Element createShadow([Element oldIcon]);
+  external Element createShadow([Element? oldIcon]);
 }
 
 @JS()
 @anonymous
 class IconOptions {
   external factory IconOptions({
-    String iconUrl,
-    String iconRetinaUrl,
-    Point iconSize,
-    Point iconAnchor,
-    Point popupAnchor,
-    Point tooltipAnchor,
-    String shadowUrl,
-    String shadowRetinaUrl,
-    Point shadowSize,
-    Point shadowAnchor,
-    String className,
+    String? iconUrl,
+    String? iconRetinaUrl,
+    Point? iconSize,
+    Point? iconAnchor,
+    Point? popupAnchor,
+    Point? tooltipAnchor,
+    String? shadowUrl,
+    String? shadowRetinaUrl,
+    Point? shadowSize,
+    Point? shadowAnchor,
+    String? className,
   });
 
   /// (required) The URL to the icon image (absolute or relative to your script path).
@@ -90,13 +90,13 @@ class DivIcon extends Icon {
 @anonymous
 class DivIconOptions extends Icon {
   external factory DivIconOptions({
-    String html,
-    Point bgPos,
-    Point iconSize,
-    Point iconAnchor,
-    Point popupAnchor,
-    Point tooltipAnchor,
-    String className,
+    String? html,
+    Point? bgPos,
+    Point? iconSize,
+    Point? iconAnchor,
+    Point? popupAnchor,
+    Point? tooltipAnchor,
+    String? className,
   });
 
   /// Custom HTML code to put inside the div element, empty by default.

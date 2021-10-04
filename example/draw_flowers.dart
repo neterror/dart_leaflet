@@ -1,4 +1,5 @@
 import 'package:dartleaf/dartleaf.dart';
+import 'package:js/js.dart';
 import 'draw.dart';
 
 class DrawFlowers implements Draw {
@@ -7,9 +8,9 @@ class DrawFlowers implements Draw {
   DrawFlowers(this._map);
 
   @override
-  set active(bool draw) {
-    if (draw) {
-      _map.on(E.click, _putLeaf);
+  set active(bool? draw) {
+    if (draw!) {
+      _map.on(E.click, allowInterop(_putLeaf));
     } else {
       _map.off(E.click);
     }

@@ -12,7 +12,7 @@ import 'geojson.dart';
 
 @JS()
 @anonymous
-class Path extends Layer with Evented {
+class Path extends Layer {
   /// Redraws the layer. Sometimes useful after you changed the coordinates that the path uses.
   external Path redraw();
 
@@ -30,23 +30,23 @@ class Path extends Layer with Evented {
 @anonymous
 class PathOptions extends InteractiveLayerOptions {
   external factory PathOptions({
-    String pane,
-    String attribution,
-    bool interactive,
-    bool stroke,
-    String color,
-    double weight,
-    double opacity,
-    String lineCap,
-    String lineJoin,
-    String dashArray,
-    String dashOffset,
-    bool fill,
-    String fillColor,
-    double fillOpacity,
-    String fillRule,
-    Renderer renderer,
-    String className,
+    String? pane,
+    String? attribution,
+    bool? interactive,
+    bool? stroke,
+    String? color,
+    double? weight,
+    double? opacity,
+    String? lineCap,
+    String? lineJoin,
+    String? dashArray,
+    String? dashOffset,
+    bool? fill,
+    String? fillColor,
+    double? fillOpacity,
+    String? fillRule,
+    Renderer? renderer,
+    String? className,
   });
 
   /// Whether to draw stroke along the path. Set it to false to   disable borders on polygons or circles.
@@ -115,11 +115,11 @@ class Polyline extends Path {
   /// Instantiates a polyline object given an array of geographical points and optionally an options object.
   /// You can create a Polyline object with multiple separate lines (MultiPolyline) by passing an array of
   /// arrays of geographic points.
-  external Polyline(List latlngs, [PolylineOptions options]);
+  external Polyline(List latlngs, [PolylineOptions? options]);
 
   /// precision is the number of decimal places for coordinates The default value is 6 places.
   /// Returns a GeoJSON representation of the polyline (as a GeoJSON LineString or MultiLineString Feature).
-  external GeoJson toGeoJSON([double precision]);
+  external GeoJson toGeoJSON([double? precision]);
 
   /// Returns an array of the points in the path, or nested arrays of points in case of multi-polyline.
   external List<LatLng> getLatLngs();
@@ -149,22 +149,22 @@ class Polyline extends Path {
 @anonymous
 class PolylineOptions extends PathOptions {
   external factory PolylineOptions({
-    bool stroke,
-    String color,
-    double weight,
-    double opacity,
-    String lineCap,
-    String lineJoin,
-    String dashArray,
-    String dashOffset,
-    bool fill,
-    String fillColor,
-    double fillOpacity,
-    String fillRule,
-    Renderer renderer,
-    String className,
-    double smoothFactor,
-    bool noClip,
+    bool? stroke,
+    String? color,
+    double? weight,
+    double? opacity,
+    String? lineCap,
+    String? lineJoin,
+    String? dashArray,
+    String? dashOffset,
+    bool? fill,
+    String? fillColor,
+    double? fillOpacity,
+    String? fillRule,
+    Renderer? renderer,
+    String? className,
+    double? smoothFactor,
+    bool? noClip,
   });
 
   ///How much to simplify the polyline on each zoom level. More means better performance and smoother look,
@@ -179,22 +179,22 @@ class PolylineOptions extends PathOptions {
 
 @JS('L.polygon')
 class Polygon extends Polyline {
-  external factory Polygon(List latlngs, [PolylineOptions options]);
+  external factory Polygon(List latlngs, [PolylineOptions? options]);
 }
 
 @JS('L.rectangle')
 class Rectangle extends Polyline {
-  external factory Rectangle(LatLngBounds latlngs, [PolylineOptions options]);
+  external factory Rectangle(LatLngBounds latlngs, [PolylineOptions? options]);
 }
 
 @JS('L.circleMarker')
 class CircleMarker extends Path {
   /// Instantiates a circle marker object given a geographical point, and an optional options object.
-  external factory CircleMarker(LatLng latlng, [CircleOptions options]);
+  external factory CircleMarker(LatLng? latlng, [CircleOptions? options]);
 
   /// precision is the number of decimal places for coordinates. The default value is 6 places.
   /// Returns a GeoJSON representation of the circle marker (as a GeoJSON Point Feature).
-  external GeoJson toGeoJSON([double precision]);
+  external GeoJson toGeoJSON([double? precision]);
 
   /// Sets the position of a circle marker to a new location.
   external CircleMarker setLatLng(LatLng latlng);
@@ -213,24 +213,24 @@ class CircleMarker extends Path {
 @anonymous
 class CircleOptions extends PathOptions {
   external factory CircleOptions({
-    String pane,
-    String attribution,
-    bool interactive,
-    bool stroke,
-    String color,
-    double weight,
-    double opacity,
-    String lineCap,
-    String lineJoin,
-    String dashArray,
-    String dashOffset,
-    bool fill,
-    String fillColor,
-    double fillOpacity,
-    String fillRule,
-    Renderer renderer,
-    String className,
-    double radius,
+    String? pane,
+    String? attribution,
+    bool? interactive,
+    bool? stroke,
+    String? color,
+    double? weight,
+    double? opacity,
+    String? lineCap,
+    String? lineJoin,
+    String? dashArray,
+    String? dashOffset,
+    bool? fill,
+    String? fillColor,
+    double? fillOpacity,
+    String? fillRule,
+    Renderer? renderer,
+    String? className,
+    double? radius,
   });
 
   /// Radius of the circle marker, in pixels
@@ -240,5 +240,5 @@ class CircleOptions extends PathOptions {
 
 @JS('L.circle')
 class Circle extends CircleMarker {
-  external factory Circle(LatLng latlng, [CircleOptions options]);
+  external factory Circle(LatLng latlng, [CircleOptions? options]);
 }
