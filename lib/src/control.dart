@@ -8,7 +8,7 @@ import 'leaflet_map.dart';
 
 @JS('L.control')
 class Control {
-  external Control([ControlOptions options]);
+  external Control([ControlOptions? options]);
 
   /// Returns the position of the control.
   external String getPosition();
@@ -29,7 +29,7 @@ class Control {
 @JS()
 @anonymous
 class ControlOptions {
-  external factory ControlOptions({String position});
+  external factory ControlOptions({String? position});
 
   /// The position of the control (one of the map corners). Possible values are 'topleft', 'topright', 'bottomleft' or   'bottomright'
   external String get position;
@@ -40,18 +40,18 @@ class ControlOptions {
 /// It is put on the map by default unless you set its [zoomControl] option to false.
 @JS('L.control.zoom')
 class ZoomControl extends Control {
-  external ZoomControl([ZoomControlOptions options]);
+  external ZoomControl([ZoomControlOptions? options]);
 }
 
 @JS()
 @anonymous
 class ZoomControlOptions extends ControlOptions {
   external factory ZoomControlOptions({
-    String position,
-    String zoomInText,
-    String zoomInTitle,
-    String zoomOutText,
-    String zoomOutTitle,
+    String? position,
+    String? zoomInText,
+    String? zoomInTitle,
+    String? zoomOutText,
+    String? zoomOutTitle,
   });
 
   /// The text set on the 'zoom in' button ('+' by default).
@@ -76,15 +76,15 @@ class ZoomControlOptions extends ControlOptions {
 /// and it fetches attribution texts from layers with the getAttribution method automatically.
 @JS('L.control.attribution')
 class AttributionControl extends Control {
-  external AttributionControl([AttributionControlOptions options]);
+  external AttributionControl([AttributionControlOptions? options]);
 }
 
 @JS()
 @anonymous
 class AttributionControlOptions extends ControlOptions {
   external factory AttributionControlOptions({
-    String position,
-    String prefix,
+    String? position,
+    String? prefix,
   });
 
   /// The HTML text shown before the attributions ('Leaflet' by default).
@@ -97,19 +97,19 @@ class AttributionControlOptions extends ControlOptions {
 /// of screen in metric (m/km) and imperial (mi/ft) systems.
 @JS('L.control.scale')
 class ScaleControl extends Control {
-  external ScaleControl([ScaleControlOptions options]);
+  external ScaleControl([ScaleControlOptions? options]);
 }
 
 @JS()
 @anonymous
 class ScaleControlOptions extends ControlOptions {
   external factory ScaleControlOptions({
-    String position,
-    String prefix,
-    num maxWidth,
-    bool metric,
-    bool imperial,
-    bool updateWhenIdle,
+    String? position,
+    String? prefix,
+    num? maxWidth,
+    bool? metric,
+    bool? imperial,
+    bool? updateWhenIdle,
   });
 
   /// Number  100 Maximum width of the control in pixels.
@@ -148,7 +148,7 @@ class LayersControl extends Control {
   external LayersControl([
     dynamic baselayers,
     dynamic overlays,
-    LayersControlOptions options,
+    LayersControlOptions? options,
   ]);
 
   /// Adds a base layer (radio button entry) with the given name to the control.
@@ -171,12 +171,12 @@ class LayersControl extends Control {
 @anonymous
 class LayersControlOptions extends ControlOptions {
   external factory LayersControlOptions({
-    String position,
-    bool collapsed,
-    bool autoZIndex,
-    bool hideSingleBase,
-    bool sortLayers,
-    LayersSortFunction sortFunction,
+    String? position,
+    bool? collapsed,
+    bool? autoZIndex,
+    bool? hideSingleBase,
+    bool? sortLayers,
+    LayersSortFunction? sortFunction,
   });
 
   /// If `true`, the control will be collapsed into an icon and expanded on mouse hover or touch (`true` by default).

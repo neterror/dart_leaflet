@@ -6,7 +6,7 @@ import 'package:js/js.dart';
 @JS('L.point')
 class Point {
   /// Creates a Point object with the given x and y coordinates. If optional round is set to true, rounds the x and y values.
-  external Point(double x, double y, [bool round]);
+  external Point(double x, double y, [bool? round]);
 
   /// Expects an array of the form [x, y] instead.
   external Point.fromCoords(List coords);
@@ -45,7 +45,7 @@ class Point {
   external Point trunc();
 
   /// Returns the cartesian distance between the current and the given points.
-  external double distanceTo(Point otherPoint);
+  external double distanceTo(Point? otherPoint);
 
   /// Returns true if the given point has the same coordinates.
   external bool equals(Point otherPoint);

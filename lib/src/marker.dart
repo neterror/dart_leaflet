@@ -10,12 +10,12 @@ import 'evented.dart';
 import 'geojson.dart';
 
 @JS('L.marker')
-class Marker extends Layer with Evented {
-  external Marker(LatLng latlng, [MarkerOptions options]);
+class Marker extends Layer {
+  external Marker(LatLng latlng, [MarkerOptions? options]);
 
   /// precision is the number of decimal places for coordinates. The default value is 6 places.
   /// Returns a GeoJSON representation of the marker (as a GeoJSON Point Feature).
-  external GeoJson toGeoJSON([double precision]);
+  external GeoJson toGeoJSON([double? precision]);
 
   /// Returns the current geographical position of the marker.
   external LatLng getLatLng();
@@ -40,22 +40,22 @@ class Marker extends Layer with Evented {
 @anonymous
 class MarkerOptions extends InteractiveLayerOptions {
   external factory MarkerOptions({
-    String attribution,
-    bool interactive,
-    Icon icon,
-    bool keyboard,
-    String title,
-    String alt,
-    double zIndexOffset,
-    double opacity,
-    bool riseOnHover,
-    double riseOffset,
-    String pane,
-    bool bubblingMouseEvents,
-    bool draggable,
-    bool autoPan,
-    Point autoPanPadding,
-    double autoPanSpeed,
+    String? attribution,
+    bool? interactive,
+    Icon? icon,
+    bool? keyboard,
+    String? title,
+    String? alt,
+    double? zIndexOffset,
+    double? opacity,
+    bool? riseOnHover,
+    double? riseOffset,
+    String? pane,
+    bool? bubblingMouseEvents,
+    bool? draggable,
+    bool? autoPan,
+    Point? autoPanPadding,
+    double? autoPanSpeed,
   });
 
   /// Icon instance to use for rendering the marker. See Icon documentation

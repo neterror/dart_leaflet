@@ -11,7 +11,7 @@ void main() {
     map.draw(btn.id, btn.checked);
   });
 
-  querySelector('#btnGetGeoJson').onClick.listen((_) {
+  querySelector('#btnGetGeoJson')!.onClick.listen((_) {
     var json = map.geoJson;
     print(json);
   });

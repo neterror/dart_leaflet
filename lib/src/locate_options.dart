@@ -7,12 +7,12 @@ import 'package:js/js.dart';
 @anonymous
 class LocateOptions {
   external factory LocateOptions({
-    bool watch,
-    bool setView,
-    double maxZoom,
-    double timeout,
-    double maximumAge,
-    bool enableHighAccuracy,
+    bool? watch,
+    bool? setView,
+    double? maxZoom,
+    double? timeout,
+    double? maximumAge,
+    bool? enableHighAccuracy,
   });
 
   /// If true, starts continuous watching of location changes (instead of detecting it once)

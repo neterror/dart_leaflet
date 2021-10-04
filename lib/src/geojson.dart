@@ -27,7 +27,7 @@ class Type {
 @JS()
 @anonymous
 class Geometry {
-  external factory Geometry({String type, List coordinates});
+  external factory Geometry({String? type, List? coordinates});
 
   external String get type;
   external set type(String value);
@@ -37,10 +37,10 @@ class Geometry {
 }
 
 @JS('L.geoJSON')
-class GeoJson extends Layer with Evented {
+class GeoJson extends Layer {
   external GeoJson([
     dynamic geojson,
-    GeoJsonOptions options,
+    GeoJsonOptions? options,
   ]);
 
   /// Optional object in GeoJSON format to display on the map.
@@ -60,7 +60,7 @@ class GeoJson extends Layer with Evented {
   /// Resets the given vector layer's style to the original GeoJSON style,
   /// useful for resetting style after hover events.
   /// If [layer] is omitted, the style of all features in the current layer is reset.
-  external GeoJson resetStyle([Layer layer]);
+  external GeoJson resetStyle([Layer? layer]);
 
   /// Changes styles of GeoJSON vector layers with the given style function.
   external GeoJson setStyle(Function style);
@@ -83,7 +83,7 @@ class GeoJson extends Layer with Evented {
   ///
   /// Can use a custom [coordsToLatLng] function.
   external static List coordsToLatLngs(List coords,
-      [int levelsDeep, Function coordsToLatLng]);
+      [int? levelsDeep, Function? coordsToLatLng]);
 
   /// Reverse of [coordsToLatLng]
   external static List latLngToCoords(LatLng latlng, num precision);
@@ -94,7 +94,7 @@ class GeoJson extends Layer with Evented {
   /// of the array to close the feature, only used when levelsDeep is 0.
   /// False by default.
   external static List latLngsToCoords(List latlngs,
-      [int levelsDeep, bool closed = false]);
+      [int? levelsDeep, bool closed = false]);
 
   /// Normalize GeoJSON geometries/features into GeoJSON features.
   external static dynamic asFeature(dynamic geojson);
@@ -104,14 +104,14 @@ class GeoJson extends Layer with Evented {
 @anonymous
 class GeoJsonOptions extends LayerOptions {
   external factory GeoJsonOptions({
-    String pane,
-    String attribution,
-    bool markersInheritOptions,
-    Layer Function(dynamic geoJsonPoint, LatLng latlng) pointToLayer,
-    PathOptions Function(dynamic geoJsonFeature) style,
-    Function(dynamic feature, Layer layer) onEachFeature,
-    bool Function(dynamic geoJsonFeature) filter,
-    Function coordsToLatLng,
+    String? pane,
+    String? attribution,
+    bool? markersInheritOptions,
+    Layer Function(dynamic geoJsonPoint, LatLng latlng)? pointToLayer,
+    PathOptions Function(dynamic geoJsonFeature)? style,
+    Function(dynamic feature, Layer layer)? onEachFeature,
+    bool Function(dynamic geoJsonFeature)? filter,
+    Function? coordsToLatLng,
   });
 
   /// Whether default Markers for "Point" type Features inherit from group options.

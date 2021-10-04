@@ -13,7 +13,7 @@ class Bounds {
   external Bounds extend(Point point);
 
   /// Returns the center point of the bounds.
-  external Point getCenter([bool round]);
+  external Point getCenter([bool? round]);
 
   /// Returns the bottom-left point of the bounds.
   external Point getBottomLeft();
@@ -52,10 +52,10 @@ class Bounds {
 @anonymous
 class FitBoundOptions {
   external factory FitBoundOptions({
-    Point paddingTopLeft,
-    Point paddingBottomRight,
-    Point padding,
-    double maxZoom,
+    Point? paddingTopLeft,
+    Point? paddingBottomRight,
+    Point? padding,
+    double? maxZoom,
   });
 
   /// Sets the amount of padding in the top left corner of a map container that shouldn't be accounted for

@@ -1,12 +1,13 @@
 import 'package:dartleaf/dartleaf.dart' as m;
 import 'package:dartleaf/src/tooltip.dart';
+import 'package:js/js.dart';
 import 'draw.dart';
 
 class DrawCircles implements Draw {
   final m.LeafletMap _map;
-  m.LatLng _centerCoord;
-  m.Point _centerPoint;
-  m.CircleMarker _circleMarker;
+  m.LatLng? _centerCoord;
+  m.Point? _centerPoint;
+  m.CircleMarker? _circleMarker;
 
   DrawCircles(this._map);
 
@@ -14,14 +15,14 @@ class DrawCircles implements Draw {
   String get geoJson => 'Not implemented';
 
   @override
-  set active(bool draw) {
-    if (draw) {
+  set active(bool? draw) {
+    if (draw!) {
       _map.dragging.disable();
       _map.on(
           m.E.mousedown,
-          (e) =>
-              _circleMarker != null ? _drawCircleEnd(e) : _drawCircleStart(e));
-      _map.on(m.E.mousemove, _drawCircle);
+          allowInterop((e) =>
+              _circleMarker != null ? _drawCircleEnd(e) : _drawCircleStart(e)));
+      _map.on(m.E.mousemove, allowInterop(_drawCircle));
     } else {
       _map.off(m.E.mousedown);
       _map.off(m.E.mousemove);
@@ -41,7 +42,7 @@ class DrawCircles implements Draw {
 
     _circleMarker = m.CircleMarker(_centerCoord, options);
 
-    _circleMarker.bindTooltip(
+    _circleMarker!.bindTooltip(
         'My Label',
         TooltipOptions()
           ..opacity = 0.8
@@ -50,7 +51,7 @@ class DrawCircles implements Draw {
           ..interactive = true
           ..className = 'my-label');
 
-    _circleMarker.addTo(_map);
+    _circleMarker!.addTo(_map);
   }
 
   void _drawCircleEnd(m.LeafletMouseEvent e) {
@@ -64,6 +65,6 @@ class DrawCircles implements Draw {
     if (_centerPoint == null) return;
     print('drawing circle');
     var p = e.layerPoint;
-    _circleMarker.setRadius(p.distanceTo(_centerPoint));
+    _circleMarker!.setRadius(p.distanceTo(_centerPoint));
   }
 }
