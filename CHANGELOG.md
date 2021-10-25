@@ -1,3 +1,6 @@
+# 1.1.4
+* Migrated to null-safe dart version 
+
 # 0.1.4
 * added interops for L.LineUtil and L.PolyUtil and some other minor improvements
 
